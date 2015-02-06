@@ -8,7 +8,7 @@ To know the list of available tasks, you can run the following command `gulp hel
 ### Description
 
 |Command|Description|
-|;-----;|-----------|
+|-----:|:-----------|
 |`gulp default` (or `gulp`)| Install useful packages|
 |`gulp help`|Display the list of available commands|
 |`gulp compile`|Compile less files in public/less folder|
