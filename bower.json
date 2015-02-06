@@ -1,0 +1,7 @@
+{
+  "name": "Kickstarter",
+  "dependencies": {
+    "fontawesome": "~4.3.0",
+    "bootstrap": "~3.3.2"
+  }
+}
