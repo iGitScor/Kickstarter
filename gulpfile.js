@@ -1,13 +1,9 @@
 var gulp        = require('gulp'),
     taskListing = require('gulp-task-listing'),
     $           = require('gulp-load-plugins')(),
-    less        = require('gulp-less'),
     minify      = require('gulp-minify-css'),
-    csslint     = require('gulp-csslint'),
-    bower       = require('gulp-bower'),
     pagespeed   = require('psi'),
-    browserSync = require('browser-sync'),
-    reload      = browserSync.reload;
+    browserSync = require('browser-sync');
 
 var publicPath = './public';
 var config = {
@@ -29,11 +25,11 @@ gulp.task('test', ['test-lint']);
 /************* Dist build *********************/
 gulp.task('dist', ['dist-bower', 'dist-icons']);
 gulp.task('dist-bower', function () {
-    return bower()
+    $.bower()
         .pipe(gulp.dest(config.bowerDir));
 });
 gulp.task('dist-icons', ['bower'], function () {
-    return gulp.src(config.bowerDir + '/fontawesome/fonts/**.*')
+    gulp.src(config.bowerDir + '/fontawesome/fonts/**.*')
         .pipe(gulp.dest(config.iconPath));
 });
 /**********************************************/
@@ -67,19 +63,39 @@ gulp.task('test-pagespeed-desktop', function () {
 /************* Lint test **********************/
 gulp.task('test-lint', ['test-lint-css', 'test-lint-js']);
 gulp.task('test-lint-css', function () {
-    gulp.src('client/css/*.css')
-        .pipe(csslint())
-        .pipe(csslint.reporter());
+    gulp.src([config.cssPath  + '/*.css'])
+        .pipe($.csslint())
+        .pipe($.notify({
+            message: "CSS Lint file: <%= file.relative %>",
+            templateOptions: {}
+        }))
+        .pipe($.csslint.reporter());
 });
 gulp.task('test-lint-js', function () {
-    gulp.src([
-        config.jsPath + "/*.js"
-    ])
-        .pipe(reload({stream: true, once: true}))
+    gulp.src([config.jsPath + "/*.js"])
+        .pipe(browserSync.reload({stream: true, once: true}))
         .pipe($.jshint())
         .pipe($.jshint.reporter('jshint-stylish'))
         .pipe($.jscs({esnext: true}))
+        .pipe($.notify({
+            message: "JS Lint file: <%= file.relative %>",
+            templateOptions: {}
+        }))
         .pipe($.if(!browserSync.active, $.jshint.reporter('fail')));
+});
+/**********************************************/
+/**********************************************/
+
+/**********************************************/
+/************* Validation *********************/
+gulp.task('test-validation', ['test-validation-html']);
+gulp.task('test-validation-html', function () {
+    gulp.src(publicPath  + '/*.html')
+        .pipe($.w3cjs())
+        .pipe($.notify({
+            message: "HTML Validator: <%= file.relative %>",
+            templateOptions: {}
+        }));
 });
 /**********************************************/
 /**********************************************/
@@ -88,13 +104,19 @@ gulp.task('test-lint-js', function () {
 /************* Compilation ********************/
 gulp.task('compile-less', function () {
     gulp.src([config.lessPath + '/*.less'])
-        .pipe(less())
+        .pipe($.less())
         .pipe(minify({keepSpecialComments : 0}))
-        .pipe(gulp.dest(config.cssPath));
+        .pipe(gulp.dest(config.cssPath))
+        .pipe($.notify({
+            message: "Compilation file: <%= file.relative %>",
+            templateOptions: {}
+        }));
 });
 /**********************************************/
 /**********************************************/
 
 gulp.task('watch', function () {
-    gulp.watch(config.lessPath + '/*.less', ['less']);
+    gulp.watch(config.lessPath + '/*.less', ['compile-less']);
+    gulp.watch(config.cssPath  + '/*.css', ['test-lint-css']);
+    gulp.watch(publicPath + '/*.html', ['test-validation-html']);
 });
