@@ -28,7 +28,7 @@ gulp.task('dist-bower', function () {
     $.bower()
         .pipe(gulp.dest(config.bowerDir));
 });
-gulp.task('dist-icons', ['bower'], function () {
+gulp.task('dist-icons', ['dist-bower'], function () {
     gulp.src(config.bowerDir + '/fontawesome/fonts/**.*')
         .pipe(gulp.dest(config.iconPath));
 });

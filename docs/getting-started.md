@@ -6,8 +6,15 @@
 $ npm install
 ```
 
-If the command fail, try to launch it as sudo user.
-This will install server packages (gulp and gulp plugins) and bower packages
+This will install server packages (gulp and gulp plugins and other dependencies)
+
+```sh
+$ gulp install
+```
+
+This will install bower packages (bootstrap, fontawesome, jquery and other dependencies)
+
+**INFO** : If the commands fail, try to launch them as sudo user.
 
 ### 2. Use the kickstarter
 
@@ -15,5 +22,5 @@ This will install server packages (gulp and gulp plugins) and bower packages
 $ gulp watch
 ```
 
-The gulp watch command permits to launch your development environment.
+The `gulp watch` command permits to launch your development environment.
 This will automatically compile less files.
