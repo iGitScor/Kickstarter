@@ -1,6 +1,5 @@
 # Kickstarter FAQ
 
-## Most frequently asked questions
 ### Gulp script does not work ?
 
 If gulp scripts fail, check if gulp is installed globally by launching `gulp help` command
@@ -15,8 +14,6 @@ Yes. But only if you execute the command `gulp watch`, otherwise you must execut
 They only fail if the configuration is not settled.
 Edit your gulpfile.js file and specify config.url.
 
-## NPM, Gulp
-
-### When using npm, when using gulp
+### When using npm, when using gulp ?
 
 Always use gulp scripts directly if gulp is installed globally.
