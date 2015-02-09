@@ -1,3 +1,4 @@
 {
-  "directory" : "library"
+  "directory" : "library",
+  "json": "bower.json"
 }
