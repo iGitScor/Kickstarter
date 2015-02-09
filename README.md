@@ -8,3 +8,10 @@
 ## Configuration
 
 * Update the gulpfile.js file and modify config.url variable with an absolute URL to launch `gulp test-pagespeed` task and its sub-tasks.
+
+## FAQ
+
+Most frequently asked questions are described here.
+You can find other questions here : [FAQ](docs/faq.md)
+
+{{md docs/faq-most.md}}
