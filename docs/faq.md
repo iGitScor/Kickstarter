@@ -2,7 +2,8 @@
 
 ### Gulp script does not work ?
 
-If gulp scripts fail, check if gulp is installed globally by launching `gulp help` command
+If gulp scripts fail, check if gulp is installed globally by launching `gulp help` command.
+
 **Solution** : See the CLI documentation for alternatives. Scripts have to be executed with npm in this case.
 
 ### Less files are not automatically compiled ?
