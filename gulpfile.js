@@ -64,6 +64,7 @@ gulp.task('test-pagespeed-desktop', function () {
 gulp.task('test-lint', ['test-lint-css', 'test-lint-js']);
 gulp.task('test-lint-css', function () {
   gulp.src([config.cssPath  + '/*.css'])
+    .pipe($.plumber())
     .pipe($.csslint())
     .pipe($.notify({
       message: "CSS Lint file: <%= file.relative %>",
@@ -73,6 +74,7 @@ gulp.task('test-lint-css', function () {
 });
 gulp.task('test-lint-js', function () {
   gulp.src([config.jsPath + "/*.js"])
+    .pipe($.plumber())
     .pipe(browserSync.reload({stream: true, once: true}))
     .pipe($.jshint())
     .pipe($.jshint.reporter('jshint-stylish'))
@@ -91,6 +93,7 @@ gulp.task('test-lint-js', function () {
 gulp.task('test-validation', ['test-validation-html']);
 gulp.task('test-validation-html', function () {
   gulp.src(publicPath  + '/*.html')
+    .pipe($.plumber())
     .pipe($.w3cjs())
     .pipe($.notify({
       message: "HTML Validator: <%= file.relative %>",
@@ -104,6 +107,7 @@ gulp.task('test-validation-html', function () {
 /************* Compilation ********************/
 gulp.task('compile-less', function () {
   gulp.src([config.lessPath + '/*.less'])
+    .pipe($.plumber())
     .pipe($.concat('style-min.less'))
     .pipe($.less())
     .pipe(minify({keepSpecialComments : 0}))
@@ -113,8 +117,9 @@ gulp.task('compile-less', function () {
       templateOptions: {}
     }));
 });
-gulp.task('compile-js', function () {
+gulp.task('compile-js', ['test-lint-js'], function () {
   gulp.src([config.jsPath + '/*.js'])
+    .pipe($.plumber())
     .pipe($.sourcemaps.init())
     .pipe($.concat('main-min.js'))
     .pipe($.uglify())
@@ -141,5 +146,6 @@ gulp.task('watch', function () {
 
   gulp.watch(config.lessPath + '/*.less', ['compile-less']);
   gulp.watch(config.cssPath  + '/*.css', ['test-lint-css']);
+  gulp.watch(config.jsPath + '/*.js', ['compile-js']);
   gulp.watch(publicPath + '/*.html', ['test-validation-html']);
 });
