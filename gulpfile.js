@@ -18,7 +18,7 @@ var config = {
 gulp.task('help', taskListing);
 gulp.task('default', ['install']);
 gulp.task('install', ['dist']);
-gulp.task('compile', ['compile-less']);
+gulp.task('compile', ['compile-less', 'compile-js']);
 gulp.task('test', ['test-lint']);
 
 /**********************************************/
@@ -104,9 +104,22 @@ gulp.task('test-validation-html', function () {
 /************* Compilation ********************/
 gulp.task('compile-less', function () {
   gulp.src([config.lessPath + '/*.less'])
+    .pipe($.concat('style-min.less'))
     .pipe($.less())
     .pipe(minify({keepSpecialComments : 0}))
     .pipe(gulp.dest(config.cssPath))
+    .pipe($.notify({
+      message: "Compilation file: <%= file.relative %>",
+      templateOptions: {}
+    }));
+});
+gulp.task('compile-js', function () {
+  gulp.src([config.jsPath + '/*.js'])
+    .pipe($.sourcemaps.init())
+    .pipe($.concat('main-min.js'))
+    .pipe($.uglify())
+    .pipe($.sourcemaps.write('./'))
+    .pipe(gulp.dest(config.jsPath))
     .pipe($.notify({
       message: "Compilation file: <%= file.relative %>",
       templateOptions: {}
@@ -125,6 +138,7 @@ gulp.task('watch', function () {
       open: true,
       https: false
     }));
+
   gulp.watch(config.lessPath + '/*.less', ['compile-less']);
   gulp.watch(config.cssPath  + '/*.css', ['test-lint-css']);
   gulp.watch(publicPath + '/*.html', ['test-validation-html']);
