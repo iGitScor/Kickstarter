@@ -27,6 +27,7 @@
     "gulp-size": "^1.2.0",
     "gulp-task-listing": "^1.0.0",
     "gulp-w3cjs": "^0.2.1",
+    "gulp-webserver": "^0.9.0",
     "jshint-stylish": "^1.0.0",
     "psi": "^1.0.5"
   },
@@ -34,11 +35,11 @@
     "node": ">=0.10.0"
   },
   "scripts": {
-    "install" : "./node_modules/gulp/bin/gulp.js install",
-    "dist" : "./node_modules/gulp/bin/gulp.js dist",
-    "help" : "./node_modules/gulp/bin/gulp.js help",
-    "watch" : "./node_modules/gulp/bin/gulp.js watch",
-    "test" : "./node_modules/gulp/bin/gulp.js test",
-    "compile" : "./node_modules/gulp/bin/gulp.js compile"
+    "install": "./node_modules/gulp/bin/gulp.js install",
+    "dist": "./node_modules/gulp/bin/gulp.js dist",
+    "help": "./node_modules/gulp/bin/gulp.js help",
+    "watch": "./node_modules/gulp/bin/gulp.js watch",
+    "test": "./node_modules/gulp/bin/gulp.js test",
+    "compile": "./node_modules/gulp/bin/gulp.js compile"
   }
 }
