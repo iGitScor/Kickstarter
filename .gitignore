@@ -1,5 +1,8 @@
 /library
+/public/css
 /public/fonts
+/public/js/*min.js
+/public/js/*.map
 /node_modules
 npm-debug.log
 .DS_Store
