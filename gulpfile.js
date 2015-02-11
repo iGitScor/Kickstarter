@@ -108,7 +108,7 @@ gulp.task('test-validation-html', function () {
 gulp.task('compile-less', function () {
   gulp.src([config.lessPath + '/*.less'])
     .pipe($.plumber())
-    .pipe($.concat('style-min.less'))
+    .pipe($.concat('style.min.less'))
     .pipe($.less())
     .pipe(minify({keepSpecialComments : 0}))
     .pipe(gulp.dest(config.cssPath))
@@ -121,7 +121,7 @@ gulp.task('compile-js', ['test-lint-js'], function () {
   gulp.src([config.jsPath + '/*.js'])
     .pipe($.plumber())
     .pipe($.sourcemaps.init())
-    .pipe($.concat('main-min.js'))
+    .pipe($.concat('main.min.js'))
     .pipe($.uglify())
     .pipe($.sourcemaps.write('./'))
     .pipe(gulp.dest(config.jsPath))
