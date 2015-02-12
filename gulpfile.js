@@ -17,7 +17,7 @@ var config = {
 
 gulp.task('help', taskListing);
 gulp.task('default', ['install']);
-gulp.task('install', ['dist']);
+gulp.task('deploy', ['dist']);
 gulp.task('compile', ['compile-less', 'compile-js']);
 gulp.task('test', ['test-lint']);
 

@@ -9,7 +9,7 @@ $ npm install
 This will install server packages (gulp and gulp plugins and other dependencies)
 
 ```sh
-$ gulp install
+$ gulp deploy
 ```
 
 This will install bower packages (bootstrap, fontawesome, jquery and other dependencies)
