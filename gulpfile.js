@@ -1,7 +1,7 @@
-var gulp    = require('gulp'),
+var gulp      = require('gulp'),
   taskListing = require('gulp-task-listing'),
-  $       = require('gulp-load-plugins')(),
-  minify    = require('gulp-minify-css'),
+  $           = require('gulp-load-plugins')(),
+  minify      = require('gulp-minify-css'),
   pagespeed   = require('psi'),
   browserSync = require('browser-sync');
 
@@ -17,7 +17,7 @@ var config = {
 
 gulp.task('help', taskListing);
 gulp.task('default', ['install']);
-gulp.task('install', ['dist']);
+gulp.task('deploy', ['dist']);
 gulp.task('compile', ['compile-less', 'compile-js']);
 gulp.task('test', ['test-lint']);
 
@@ -72,6 +72,7 @@ gulp.task('test-lint', ['test-lint-css', 'test-lint-js']);
 gulp.task('test-lint-css', function () {
   gulp.src([config.cssPath  + '/*.css'])
     .pipe($.plumber())
+    .pipe(browserSync.reload({stream: true, once: false}))
     .pipe($.csslint())
     .pipe($.notify({
       message: "CSS Lint file: <%= file.relative %>",
@@ -82,7 +83,7 @@ gulp.task('test-lint-css', function () {
 gulp.task('test-lint-js', function () {
   gulp.src([config.jsPath + "/*.js"])
     .pipe($.plumber())
-    .pipe(browserSync.reload({stream: true, once: true}))
+    .pipe(browserSync.reload({stream: true, once: false}))
     .pipe($.jshint())
     .pipe($.jshint.reporter('jshint-stylish'))
     .pipe($.jscs({esnext: true}))
@@ -118,7 +119,6 @@ gulp.task('compile-less', function () {
     .pipe($.concat('style.min.less'))
     .pipe($.less())
     .pipe(minify({keepSpecialComments : 0}))
-    .pipe($.gzip())
     .pipe(gulp.dest(config.cssPath))
     .pipe($.notify({
       message: "Compilation file: <%= file.relative %>",
@@ -134,7 +134,6 @@ gulp.task('compile-js', ['test-lint-js'], function () {
     .pipe($.sourcemaps.init())
     .pipe($.concat('main.min.js'))
     .pipe($.uglify())
-    .pipe($.gzip())
     .pipe($.sourcemaps.write('./'))
     .pipe(gulp.dest(config.jsPath))
     .pipe($.notify({
@@ -157,7 +156,6 @@ gulp.task('watch', function () {
     }));
 
   gulp.watch(config.lessPath + '/*.less', ['compile-less']);
-  gulp.watch(config.cssPath  + '/*.css', ['test-lint-css']);
   gulp.watch(config.jsPath + '/*.js', ['compile-js']);
   gulp.watch(publicPath + '/*.html', ['test-validation-html']);
 });
