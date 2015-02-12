@@ -118,6 +118,7 @@ gulp.task('compile-less', function () {
     .pipe($.concat('style.min.less'))
     .pipe($.less())
     .pipe(minify({keepSpecialComments : 0}))
+    .pipe($.gzip())
     .pipe(gulp.dest(config.cssPath))
     .pipe($.notify({
       message: "Compilation file: <%= file.relative %>",
@@ -125,11 +126,15 @@ gulp.task('compile-less', function () {
     }));
 });
 gulp.task('compile-js', ['test-lint-js'], function () {
-  gulp.src([config.jsPath + '/*.js'])
+  gulp.src([
+    config.jsPath + '/*.js',
+    '!' + config.jsPath +  '/*.min.js'
+  ])
     .pipe($.plumber())
     .pipe($.sourcemaps.init())
     .pipe($.concat('main.min.js'))
     .pipe($.uglify())
+    .pipe($.gzip())
     .pipe($.sourcemaps.write('./'))
     .pipe(gulp.dest(config.jsPath))
     .pipe($.notify({
