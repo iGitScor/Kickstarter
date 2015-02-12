@@ -1,31 +1,140 @@
 <!DOCTYPE html>
 <html lang="fr">
-  <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Bootstrap 1001 Kickstarter</title>
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Bootstrap 1001 Kickstarter</title>
 
-    <!-- Bootstrap -->
-    <link href="css/style.min.css" rel="stylesheet">
+  <!-- Bootstrap -->
+  <link href="css/style.min.css" rel="stylesheet">
 
-    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
-    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+  <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+  <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
     <!--[if lt IE 9]>
       <script src="//oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
       <script src="//oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
-    <![endif]-->
-  </head>
-  <body>
-    <h1>Hello, world!</h1>
+      <![endif]-->
+    </head>
+    <body>
+      <div id="site-wrapper">
+        <header id="header" class="header-wrapper">
 
-    <p><i class="fa fa-times"></i>Here we are !</p>
+          <div class="container">
+            <div class="row">
+            </div>
+          </div><!-- /container -->
 
-    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
-    <script src="../library/jquery/dist/jquery.min.js"></script>
-    <!-- Include all compiled plugins (below), or include individual files as needed -->
-    <script src="../library/bootstrap/dist/js/bootstrap.min.js"></script>
-    <!-- Application  Script -->
-    <script src="js/main.min.js"></script>
-  </body>
+          <div class="container">
+            <div class="row">
+              <div class="col-md-4">
+                <p class="logo"><a href="#" title=""><img src="/img/logo.png" alt"Logo 1001Pharmacies"/></a></p>
+              </div>
+              <div class="col-md-8">
+                <h1 class="h4">1001Pharmacies, n°1 de la santé en ligne</h1>
+              </div>
+            </div>          
+          </div><!-- /container -->
+
+          <nav class="navbar navbar-default container" role="navigation">
+           <div class="container">
+            <ul class="nav navbar-nav navbar-right">
+              <li>
+                <a href="" title="">LINK</a>
+              </li>
+              <li>
+                <a href="" title="">LINK</a>
+              </li>
+              <li class="dropdown">
+                <a href="" title="" class="dropdown-toggle">LINK</a>
+                <ul class="dropdown-menu">
+                  <li>
+                    <a href="" title="">SUB-LINK</a>
+                  </li>
+                </ul>
+              </li>
+            </ul>
+          </div><!-- /container-fluid -->
+        </nav><!-- /navbar -->
+
+        <div class="navbar navbar-default">
+          <div class="container">
+            <nav class="navbar-collapse collapse" id="navbar-main">
+              <ul class="nav navbar-nav">
+                <li class="dropdown">
+                  <a class="dropdown-toggle" data-toggle="dropdown" href="#" id="themes">Themes <span class="caret"></span></a>
+                  <ul class="dropdown-menu" aria-labelledby="themes">
+                    <li><a href="../default/">Default</a></li>
+                    <li class="divider"></li>
+                    <li><a href="../cerulean/">Cerulean</a></li>
+                    <li><a href="../cosmo/">Cosmo</a></li>
+                    <li><a href="../cyborg/">Cyborg</a></li>
+                    <li><a href="../darkly/">Darkly</a></li>
+                    <li><a href="../flatly/">Flatly</a></li>
+                    <li><a href="../journal/">Journal</a></li>
+                    <li><a href="../lumen/">Lumen</a></li>
+                    <li><a href="../paper/">Paper</a></li>
+                    <li><a href="../readable/">Readable</a></li>
+                    <li><a href="../sandstone/">Sandstone</a></li>
+                    <li><a href="../simplex/">Simplex</a></li>
+                    <li><a href="../slate/">Slate</a></li>
+                    <li><a href="../spacelab/">Spacelab</a></li>
+                    <li><a href="../superhero/">Superhero</a></li>
+                    <li><a href="../united/">United</a></li>
+                    <li><a href="../yeti/">Yeti</a></li>
+                  </ul>
+                </li>
+                <li>
+                  <a href="../help/">Help</a>
+                </li>
+                <li>
+                  <a href="http://news.bootswatch.com">Blog</a>
+                </li>
+                <li class="dropdown">
+                  <a class="dropdown-toggle" data-toggle="dropdown" href="#" id="download">Download <span class="caret"></span></a>
+                  <ul class="dropdown-menu" aria-labelledby="download">
+                    <li><a href="./bootstrap.min.css">bootstrap.min.css</a></li>
+                    <li><a href="./bootstrap.css">bootstrap.css</a></li>
+                    <li class="divider"></li>
+                    <li><a href="./variables.less">variables.less</a></li>
+                  </ul>
+                </li>
+              </ul>
+
+              <ul class="nav navbar-nav navbar-right">
+                <li><a href="http://builtwithbootstrap.com/" target="_blank">Built With Bootstrap</a></li>
+                <li><a href="https://wrapbootstrap.com/?ref=bsw" target="_blank">WrapBootstrap</a></li>
+              </ul>
+
+            </nav>
+          </div>
+        </div>
+
+      </header><!-- /header -->
+
+      <article class="content-wrapper">
+        <div class="container">
+          <div class="row">
+            <section class="col-md-8">
+             <h2 class="h4"><i class="fa fa-plane"></i> TITRE SECTION</h2>
+             MAIN 
+             <p class="text-center"><a href="#" title="" class="btn btn-primary">CalltoAction</a></p>
+           </section>
+           <aside class="col-md-4"> ASIDE </aside>
+         </div>          
+       </div><!-- /container -->
+     </article><!-- /article -->
+     <footer id="footer" class="footer-wrapper">
+      <div class="container">
+        FOOTER
+      </div><!-- /container -->
+    </footer><!-- /footer -->
+  </div><!-- /#site-wrapper -->
+  <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+  <script src="js/external/jquery.min.js"></script>
+  <!-- Include all compiled plugins (below), or include individual files as needed -->
+  <script src="js/external/bootstrap.min.js"></script>
+  <!-- Application  Script -->
+  <script src="js/main.min.js"></script>
+</body>
 </html>
