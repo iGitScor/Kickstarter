@@ -5,139 +5,319 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Bootstrap 1001 Kickstarter</title>
-
-  <!-- Bootstrap -->
   <link href="css/style.min.css" rel="stylesheet">
+  <!--[if lt IE 9]>
+    <script src="//oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+    <script src="//oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
 
-  <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
-  <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
-    <!--[if lt IE 9]>
-      <script src="//oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
-      <script src="//oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
-      <![endif]-->
-    </head>
-    <body>
-      <div id="site-wrapper">
-        <header id="header" class="header-wrapper">
-
-          <div class="header-top">
-           <h1 class="text-center">1001Pharmacies, n°1 de la santé en ligne</h1>
-         </div><!-- /container -->
-
-         <div class="header-mid container">
-          <div class="row">
-            <div class="col-sm-6">
-              <p class="logo"><a href="/home" title="Revenir à l'accueil"><img src="/img/logo.png" alt="Logo 1001Pharmacies"/></a></p>
-            </div>
-            <div class="col-sm-6">
-
-            </div>
-          </div>          
-        </div><!-- /container -->
-
-        <div class="navbar navbar-default fixed-height container">
-          
-            <nav>
-              <div class="navbar-collapse" id="navbar-main"> 
-                <ul class="nav navbar-nav text-uppercase">
-                  <li><a href="#" target="_blank"><i class="fa fa-home"></i>&nbsp;Accueil</a></li>
-                  <li><a href="#" target="_blank">Parapharmacie</a></li>
-                  <li><a href="#" target="_blank">Marques</a></li>
-                  <li><a href="#" target="_blank">Retrait en Pharmacie</a></li>
-                  <li><a href="#" target="_blank">Blog</a></li>
-                </ul>
-              </div><!-- /navbar-default -->
-              <div class="navbar-collapse navbar-inverse" id="navbar-second"> 
-                <ul class="nav navbar-nav text-uppercase">
-                  <li><a href="#" target="_blank"><i class="fa fa-home"></i>&nbsp;Accueil</a></li>
-                  <li><a href="#" target="_blank">Parapharmacie</a></li>
-                  <li><a href="#" target="_blank">Marques</a></li>
-                  <li><a href="#" target="_blank">Retrait en Pharmacie</a></li>
-                  <li><a href="#" target="_blank">Blog</a></li>
-                </ul>
-              </div><!-- /navbar-default -->
-            </nav>
-          
-        </div>
-
-      </header><!-- /header -->
-
-      <article class="content-wrapper">
-        <div class="container">
-          <section class="text-center row">
-            <h1>Marketing stuff!</h1>
-            <p class="lead">Cras justo odio, dapibus ac facilisis in, egestas eget quam. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet.</p>
-            <p><a class="btn btn-lg btn-success" href="#" role="button">Get started today</a></p>
-            <div class="col-sm-4">
-             <h2>Heading</h2>
-             <p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui. </p>
-             <p><a class="btn btn-primary" href="#" role="button">View details »</a></p>
-           </div>
-           <div class="col-sm-4">
-            <h2>Heading</h2>
-            <p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui. </p>
-            <p><a class="btn btn-primary" href="#" role="button">View details »</a></p>
+  </head>
+  <body>
+    <div id="site-wrapper">
+      <header id="header" class="header-wrapper">
+        <div class="header-top">
+         <h1 class="text-center">1001Pharmacies, n°1 de la santé en ligne</h1>
+       </div>
+       <!-- /container -->
+       <div class="header-mid container">
+        <div class="row">
+          <div class="col-sm-6">
+            <p class="logo"><a href="/home" title="Revenir à l'accueil"><img src="/img/logo-large.png" alt="Logo 1001Pharmacies"/></a></p>
           </div>
-          <div class="col-sm-4">
-            <h2>Heading</h2>
-            <p>Donec sed odio dui. Cras justo odio, dapibus ac facilisis in, egestas eget quam. Vestibulum id ligula porta felis euismod semper. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa.</p>
-            <p><a class="btn btn-primary" href="#" role="button">View details »</a></p>
+          <div class="col-sm-6">
           </div>
-        </section>
-
-      </section><!-- /product-list -->
-
-      <section class="product-list row">
-
-        <div class="item col-sm-6 row">
-          <div class="illus col-sm-4"><img src="/img/placeholder-180.jpg" alt="Illustration produit"/></div>
-          <div class="txt col-sm-8">
-            <h3 class="title">Titre produit</h3>
-            <div class="desc">
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean egestas, dui iaculis sagittis tristique, purus turpis fermentum neque, at ullamcorper nisl leo sit amet nulla.
-            </div>
-            <p class="action text-right"><a href="/produit" title="Lien du produit" class="btn btn-primary btn-lg text-uppercase"><i class="fa fa-caret-right"></i> J'achète</a></p>
-          </div>
-        </div><!-- /item -->
-        <div class="item col-sm-6 row">
-          <div class="illus col-sm-4"><img src="/img/placeholder-180.jpg" alt="Illustration produit"/></div>
-          <div class="txt col-sm-8">
-            <h3 class="title">Titre produit</h3>
-            <div class="desc">
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean egestas, dui iaculis sagittis tristique, purus turpis fermentum neque, at ullamcorper nisl leo sit amet nulla.
-            </div>
-            <p class="action text-right"><a href="/produit" title="Lien du produit" class="btn btn-primary btn-lg text-uppercase"><i class="fa fa-caret-right"></i> J'achète</a></p>
-          </div>
-        </div><!-- /item -->
-
-      </section><!-- /product-list -->
-    </div><!-- /container -->
-
-  </article><!-- /article -->
-  <footer id="footer" class="footer-wrapper">
-    <div class="container">
-      <div class="row">
-        <div class="col-sm-12">
-
-          <ul class="list-unstyled">
-            <li class="pull-right"><a href="#top">Back to top</a></li>
-            <li><a href="">Accueil</a></li>
-            <li><a href="">Marques</a></li>
-            <li><a href="">Blog</a></li>
-          </ul>
-
-          <p>Copyright &copy;2015, <a href="http://www.1001pharmacies.com/" title="Site de 1001Pharmacies">1001Pharmacies.com</a></p>
-
         </div>
       </div>
-    </div><!-- /container -->
-  </footer><!-- /footer -->
-</div><!-- /#site-wrapper -->
-<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
-<script src="js/external/jquery.min.js"></script>
-<!-- Include all compiled plugins (below), or include individual files as needed -->
-<script src="js/external/bootstrap.min.js"></script>
-<!-- Application  Script -->
-<script src="js/main.min.js"></script>
+      <!-- /container -->
+
+      <div class="navbar navbar-default fixed-height container">
+
+        <nav id="main-nav" class="main-nav">
+          <div class="navbar-header">
+            <button class="navbar-toggle" type="button" data-toggle="collapse" data-target="#navbar-collapse" aria-expanded="true">
+              <span class="sr-only">Toggle navigation</span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+            </button><!--/nav-toggle-->
+            <a class="navbar-brand visible-xs" href="#">Menu</a>
+          </div><!--/navbar-header-->            
+          <div class="navbar-collapse collapse" id="navbar-collapse" aria-expanded="true" role="navigation">
+            <ul class="nav navbar-nav">
+              <li class="nav-item"><a href="#heading"><i class="fa fa-home"></i>&nbsp;Home</a></li>
+              <li class="nav-item"><a href="#features">Features</a></li>
+              <li class="nav-item"><a href="#how">How it works</a></li>
+              <li class="nav-item"><a href="#pricing">Pricing</a></li>
+              <li class="nav-item last"><a href="#contact">Contact</a></li>
+            </ul><!--/nav-->
+          </div><!--/navabr-collapse-->
+        </nav>
+
+      </div><!-- navbar -->
+
+    </header><!-- /header -->
+
+    <article class="content-wrapper">
+      <!-- :SECTION /features-->
+      <section class="features">
+        <div class="container">
+          <div class="row">
+            <h2 class="title text-center sr-only">Features</h2>
+            <div class="item col-md-3 col-sm-6 col-xs-12 text-center">
+              <div class="icon">
+                <i class="fa fa-plus"></i>                
+              </div><!--/icon-->
+              <div class="content">
+                <h3 class="title">UNE PHARMACIE FRANÇAISE ASSURE VOTRE COMMANDE</h3>
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean egestas, dui iaculis.</p>  
+                <button class="action btn btn-link">En savoir plus</button>
+              </div><!--/content-->               
+            </div><!--/item-->
+            <div class="item col-md-3 col-sm-6 col-xs-12 text-center">
+              <div class="icon">
+                <i class="fa fa-comments"></i>                
+              </div><!--/icon-->
+              <div class="content">
+                <h3 class="title">UN SAV AIMABLE ET DISPONIBLE </h3>
+                <p class="desc">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean egestas, dui iaculis.</p>   
+                <button class="action btn btn-link">En savoir plus</button>
+              </div><!--/content-->               
+            </div><!--/item-->
+            <div class="item col-md-3 col-sm-6 col-xs-12 text-center">
+              <div class="icon">
+                <i class="fa fa-truck"></i>                
+              </div><!--/icon-->
+              <div class="content">
+                <h3 class="title">UN RETRAIT COMPTOIR OU UNE EXPÉDITION EN 48H</h3>
+                <p class="desc">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean egestas, dui iaculis.</p> 
+                <button class="action btn btn-link">En savoir plus</button>  
+              </div><!--/content-->               
+            </div><!--/item-->
+            <div class="item col-md-3 col-sm-6 col-xs-12 text-center">
+              <div class="icon">
+                <i class="fa fa-lock"></i>                
+              </div><!--/icon-->
+              <div class="content">
+                <h3 class="title">PAIEMENT EN LIGNE <br/>ULTRA-SÉCURISÉ</h3>
+                <p class="desc">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean egestas, dui iaculis.</p>   
+                <button class="action btn btn-link">En savoir plus</button>
+              </div><!--/content-->               
+            </div><!--/item-->
+          </div><!-- /row -->
+        </div><!-- /container -->
+      </section><!-- :ENDSECTION /features -->
+
+      <!-- :SECTION /product-list -->
+      <section class="product-list">
+      <h2 class="title text-center">Nos produits coups de coeur</h2>
+        <div class="container">
+          <div class="row">
+            <div class="item col-md-6 col-sm-6 col-xs-12 row">
+              <div class="illus col-sm-4"><img src="/img/placeholder-180.jpg" alt="Illustration produit" class="img-responsive" /></div>
+              <div class="col-sm-8">
+                <h3 class="title">Titre produit</h3>
+                <div class="desc">
+                  Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean egestas, dui iaculis sagittis tristique, purus turpis fermentum neque, at ullamcorper nisl leo sit amet nulla.
+                </div>
+                <div class="sub rowS">
+                  <div>
+                    <span class="price">A partir de 14&euro;</span>
+                  </div>
+                  <div>
+                    <span class="action pull-right text-right">
+                      <a href="/produit" title="Lien du produit" class="btn btn-primary"><i class="fa fa-angle-double-right"></i> J'achète <i class="fa fa-angle-double-left"></i></a>
+                    </span>
+                  </div>
+                </div><!-- /sub -->
+              </div>
+            </div><!-- /item -->
+            <div class="item col-md-6 col-sm-6 col-xs-12 row">
+              <div class="illus col-sm-4"><img src="/img/placeholder-180.jpg" alt="Illustration produit" class="img-responsive"/></div>
+              <div class="col-sm-8">
+                <h3 class="title">Titre produit</h3>
+                <div class="desc">
+                  Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean egestas, dui iaculis sagittis tristique, purus turpis fermentum neque, at ullamcorper nisl leo sit amet nulla.
+                </div>
+                <div class="sub rowS">
+                  <div>
+                    <span class="price">A partir de 14&euro;</span>
+                  </div>
+                  <div>
+                    <span class="action pull-right text-right">
+                      <a href="/produit" title="Lien du produit" class="btn btn-primary"><i class="fa fa-angle-double-right"></i> J'achète <i class="fa fa-angle-double-left"></i></a>
+                    </span>
+                  </div>
+                </div><!-- /sub -->
+              </div>
+            </div><!-- /item -->
+
+            <div class="item col-md-6 col-sm-6 col-xs-12 row">
+              <div class="illus col-sm-4"><img src="/img/placeholder-180.jpg" alt="Illustration produit" class="img-responsive" /></div>
+              <div class="col-sm-8">
+                <h3 class="title">Titre produit</h3>
+                <div class="desc">
+                  Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean egestas, dui iaculis sagittis tristique, purus turpis fermentum neque, at ullamcorper nisl leo sit amet nulla.
+                </div>
+                <div class="sub rowS">
+                  <div>
+                    <span class="price">A partir de 14&euro;</span>
+                  </div>
+                  <div>
+                    <span class="action pull-right text-right">
+                      <a href="/produit" title="Lien du produit" class="btn btn-primary"><i class="fa fa-angle-double-right"></i> J'achète <i class="fa fa-angle-double-left"></i></a>
+                    </span>
+                  </div>
+                </div><!-- /sub -->
+              </div>
+            </div><!-- /item -->
+            <div class="item col-md-6 col-sm-6 col-xs-12 row">
+              <div class="illus col-sm-4"><img src="/img/placeholder-180.jpg" alt="Illustration produit" class="img-responsive"/></div>
+              <div class="col-sm-8">
+                <h3 class="title">Titre produit</h3>
+                <div class="desc">
+                  Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean egestas, dui iaculis sagittis tristique, purus turpis fermentum neque, at ullamcorper nisl leo sit amet nulla.
+                </div>
+                <div class="sub rowS">
+                  <div>
+                    <span class="price">A partir de 14&euro;</span>
+                  </div>
+                  <div>
+                    <span class="action pull-right text-right">
+                      <a href="/produit" title="Lien du produit" class="btn btn-primary"><i class="fa fa-angle-double-right"></i> J'achète <i class="fa fa-angle-double-left"></i></a>
+                    </span>
+                  </div>
+                </div><!-- /sub -->
+              </div>
+            </div><!-- /item -->
+          </div><!-- /row -->
+        </div><!-- /container -->
+      </section><!-- :ENDSECTION /product-list -->
+
+      <!-- :SECTION /testimonials -->
+      <section class="testimonials">
+        <h2 class="title text-center">L'avis de nos blogueuses</h2>
+        <div class="container">
+          <div class="row">
+            <div class="item col-md-4 col-sm-4">
+              <div class="quote-box">
+                <i class="fa fa-quote-left"></i>
+                <blockquote class="quote">
+                  <a href="#">@1001Pharma</a> J'adore ce #produit. Lorem ipsum dolor sit amet, consectetur adipiscing elit. #Mobile
+                </blockquote>
+              </div>
+              <div class="people row">
+                <img class="img-circle illus col-md-5 col-sm-5 col-xs-12 col-md-offset-1 col-sm-offset-1" src="img/placeholder-user-pic.jpg" alt=""/>
+                <p class="details text-center pull-left">
+                  <span class="name">Aurélie MAIANO</span>
+                  <span class="address">Montpellier, FR</span>
+                </p>                        
+              </div>
+            </div><!-- /item -->
+            <div class="item col-md-4 col-sm-4">
+              <div class="quote-box">
+                <i class="fa fa-quote-left"></i>
+                <blockquote class="quote">
+                  <a href="#">@1001Pharma</a> J'adore ce #produit. Lorem ipsum dolor sit amet, consectetur adipiscing elit. #Mobile
+                </blockquote>
+              </div>
+              <div class="people row">
+                <img class="img-circle illus col-md-5 col-sm-5 col-xs-12 col-md-offset-1 col-sm-offset-1" src="img/placeholder-user-pic.jpg" alt=""/>
+                <p class="details text-center pull-left">
+                  <span class="name">Aurélie MAIANO</span>
+                  <span class="address">Montpellier, FR</span>
+                </p>                        
+              </div>
+            </div><!-- /item -->
+            <div class="item col-md-4 col-sm-4">
+              <div class="quote-box">
+                <i class="fa fa-quote-left"></i>
+                <blockquote class="quote">
+                  <a href="#">@1001Pharma</a> J'adore ce #produit. Lorem ipsum dolor sit amet, consectetur adipiscing elit. #Mobile
+                </blockquote>
+              </div>
+              <div class="people row">
+                <img class="img-circle illus col-md-5 col-sm-5 col-xs-12 col-md-offset-1 col-sm-offset-1" src="img/placeholder-user-pic.jpg" alt=""/>
+                <p class="details text-center pull-left">
+                  <span class="name">Aurélie MAIANO</span>
+                  <span class="address">Montpellier, FR</span>
+                </p>                        
+              </div>
+            </div><!-- /item -->
+          </div><!-- /row -->
+        </div><!-- /container -->
+
+      </section><!-- :ENDSECTION /testimonials -->
+
+      <!-- :SECTION /contact -->
+      <section id="contact" class="contact">
+        <div class="container">
+          <div class="row text-center">
+            <h2 class="title">Contactez-nous</h2>
+            <div class="intro col-md-6 col-sm-12 col-xs-12 col-md-offset-3">
+              <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam ut erat magna. Aliquam porta sem a lacus imperdiet posuere. Integer semper eget ligula id eleifend.</p>
+              <ul class="list-unstyled contact-details">
+                <li><i class="fa fa-envelope"></i>&nbsp;<a href="mailto:hello@website.com">hello@website.com</a></li>
+                <li><i class="fa fa-phone-square"></i>&nbsp;01 23 45 67 89</li>
+              </ul>
+            </div>
+          </div><!--/row-->
+          <div class="row text-center">
+            <div class="contact-form col-md-6 col-sm-12 col-xs-12 col-md-offset-3">                            
+              <form class="form">                
+                <div class="form-group name">
+                  <label class="sr-only" for="name">Nom</label>
+                  <input id="name" type="text" class="form-control" placeholder="Name:">
+                </div>
+                <div class="form-group email">
+                  <label class="sr-only" for="email">Email</label>
+                  <input id="email" type="email" class="form-control" placeholder="Email:">
+                </div>
+                <div class="form-group message">
+                  <label class="sr-only" for="message">Message</label>
+                  <textarea id="message" class="form-control" rows="6" placeholder="Message:"></textarea>
+                </div>
+                <button type="submit" class="btn btn-secondary btn-lg">Envoyer</button>
+              </form>      
+            </div>
+          </div><!--/row-->
+          <div class="text-center">
+            <ul class="social-icons list-inline">
+              <li><a href="#"><i class="fa fa-twitter"></i></a></li>
+              <li><a href="#"><i class="fa fa-facebook"></i></a></li>
+              <li><a href="#"><i class="fa fa-linkedin"></i></a></li>
+              <li><a href="#"><i class="fa fa-google-plus"></i></a></li>                  
+            </ul>
+          </div>
+        </div><!--/container-->
+      </section><!-- :ENDSECTION /contact -->
+
+
+    </article><!-- /content-wrapper -->
+
+    <footer id="footer" class="footer-wrapper">
+      <div class="container">
+        <div class="row">
+          <div class="col-sm-12">
+
+            <ul class="list-unstyled">
+              <li class="pull-right"><a href="#top">Back to top</a></li>
+              <li><a href="">Accueil</a></li>
+              <li><a href="">Marques</a></li>
+              <li><a href="">Blog</a></li>
+            </ul>
+
+            <p>Copyright &copy;2015, <a href="http://www.1001pharmacies.com/" title="Site de 1001Pharmacies">1001Pharmacies.com</a></p>
+
+          </div>
+        </div>
+      </div><!-- /container -->
+    </footer><!-- /footer -->
+  </div><!-- /#site-wrapper -->
+  <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+  <script src="js/external/jquery.min.js"></script>
+  <!-- Include all compiled plugins (below), or include individual files as needed -->
+  <script src="js/external/bootstrap.min.js"></script>
+  <!-- Application  Script -->
+  <script src="js/main.min.js"></script>
 </body>
 </html>

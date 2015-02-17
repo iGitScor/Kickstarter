@@ -136,6 +136,23 @@
 }
 
 //
+// U T I L I T I E S
+// --------------------------------------------------
+.rowS {
+  display: table;
+  width: 100%;
+  table-layout: fixed;
+  overflow: hidden;
+
+  > * {
+    display: table-cell;
+    vertical-align: middle;
+  }
+}
+
+
+
+//
 // B U T T O N S
 // --------------------------------------------------
 
@@ -144,11 +161,15 @@
   border-radius: @border-radius-small;
 }
 
+.btn-secondary {
+  .button-variant(@btn-secondary-color; @btn-secondary-bg; @btn-secondary-border);
+}
+
 //
 // W R A P P E R  D I V S
 // --------------------------------------------------
 #site-wrapper {
-  background: url('/img/super-bg.jpg') top no-repeat;
+  // background: url('/img/super-bg.jpg') top no-repeat;
 
 }
 .content-wrapper{
@@ -176,77 +197,13 @@
   padding: @padding-large-vertical 0;
 }
 
-//
-// N A V 
-// --------------------------------------------------
-// Mixin
-.offseted-link {
-  margin-top: -4px;
-  padding-top: 4px;
-  padding-bottom: 4px;
-  background-color: @navbar-default-link-hover-bg;
-}
-// -----
-
-.navbar-default {
- font-family: @font-family-brand;
-}
-
-.navbar {
-  border-radius: 0;
-}
-.navbar.fixed-height {
- height: @navbar-height;
-}
-
-.navbar-nav {
-  > li {
-
-    &:hover,
-    &:focus {
-      .offseted-link;
-    }
-
-  }
-  > .active {
-    .offseted-link;
-  }
-  > .dropdown.open {
-    .offseted-link;
-  }
-
-  > li > a {
-    color: @navbar-default-link-color;
-
-    &:hover,
-    &:focus {
-      color: @navbar-default-link-hover-color;
-      background-color: @navbar-default-link-hover-bg;
-    }
-  }
-  > .active > a {
-    &,
-    &:hover,
-    &:focus {
-      color: @navbar-default-link-active-color;
-      background-color: @navbar-default-link-active-bg;
-    }
-  }
-  > .disabled > a {
-    &,
-    &:hover,
-    &:focus {
-      color: @navbar-default-link-disabled-color;
-      background-color: @navbar-default-link-disabled-bg;
-    }
-  }
-}
 
 //
 // F O O T E R 
 // --------------------------------------------------
 #footer {
   background: #FFF;
+
   > * {
     padding-top: 40px;
     padding-bottom: 40px;
@@ -254,3 +211,180 @@
     
   }
 }
+
+
+//
+// F E A T U R E S  B L O C K
+// --------------------------------------------------
+.features {
+  padding: 30px 0px 0px;
+  background-color: #6F3896;
+  color: #FFF;
+  background-image: url('../img/alpha-pattern.png');
+  background-repeat: repeat;
+  background-position: left top;
+
+  .item {
+
+   .icon {
+    display: table;
+    table-layout: fixed;
+    width: 90px;
+    height: 90px;
+    margin: 0px auto;
+    color: @brand-secondary;
+    border: 3px solid @brand-secondary;
+    border-radius: 50%;
+
+    .fa {
+      display: table-cell;
+      vertical-align: middle;
+      text-align: center;
+      font-size: 48px;
+    }
+  }
+
+  .content {
+    padding: 30px;
+    color: #FFF;
+
+    .title {
+      margin-top: 0px;
+      color: @brand-secondary;
+      font-size: @font-size-h5;
+
+    }
+    .desc {
+
+    }
+    .action{
+      color: @brand-secondary;
+
+    }
+  }
+} 
+}
+
+//
+// T E S T I M O N I A L S  B L O C K
+// --------------------------------------------------
+.testimonials {
+  margin: 30px 0 0 0;
+  padding: 30px 0px 30px;
+  background-color: lighten(@gray-lighter, 10%);
+  color: @gray-base;
+  background-image: url('../img/alpha-pattern.png');
+  background-repeat: repeat;
+  background-position: left top;
+
+  .title {
+    margin-bottom: 60px;
+  }
+
+  .item {
+    margin-bottom: 30px;
+
+    .quote-box {
+     position: relative;
+     padding: 30px;           
+     margin-bottom: 23px;
+     .border-top-radius(@border-radius-base);
+     border-top: 3px solid @brand-primary;
+     background: @gray-lighter;
+
+     .fa {
+       position: absolute;
+       left: 30px;
+       top: 20px;
+       color: @brand-primary;
+       font-size: @font-size-large;
+     }
+
+     &:after {
+      content: "";
+      position: absolute;
+      bottom: -10px;
+      left: 55px;
+      display: block;
+      width: 0;
+      height: 0;
+      border-left: 10px solid transparent;
+      border-right: 10px solid transparent;
+      border-top: 10px solid @gray-lighter;
+      
+    }
+  }
+
+  .quote {
+    padding: 0;
+    margin-bottom: 0;
+    padding-left: 20px;
+    font-size: @font-size-large;
+    font-weight: 300;
+    border: none;
+
+  }
+  .people {
+
+    .illus {
+      width: 60px;
+      height: 60px;
+      margin-right: 10px;
+      -webkit-box-sizing: content-box;
+      -moz-box-sizing: content-box;
+      box-sizing: content-box;
+
+      &:after,
+      &:before{
+        -webkit-box-sizing: content-box;
+        -moz-box-sizing: content-box;
+        box-sizing: content-box;
+      }
+    }
+    .name {
+      display: block;
+    }
+    .address {
+
+    }
+    .note {
+
+    }
+  }
+
+}
+
+}
+
+//
+// C O N T A C T  B L O C K
+// --------------------------------------------------
+.contact {
+  margin: 0;
+  padding: 30px 0px 0px;
+  background-color: @brand-primary;
+  color: #FFF;
+  background-image: url('../img/alpha-pattern.png');
+  background-repeat: repeat;
+  background-position: left top;
+
+  .title {
+    margin-top: 0px;
+  }
+  .intro {
+
+    p {
+      font-size: @font-size-large;
+      font-weight: 300;
+    }
+    li {
+      margin : 30px 0;
+      color : @brand-secondary;
+    }
+    a {
+      color : @brand-secondary;
+    }
+  }
+}
+
+
