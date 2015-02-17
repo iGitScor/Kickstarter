@@ -1,6 +1,7 @@
 /library
 /public/css
-/public/fonts
+/public/fonts/*.*
+/public/img/*.*
 /public/js/*min.js
 /public/js/*.map
 /node_modules

@@ -3,7 +3,8 @@ var gulp      = require('gulp'),
   $           = require('gulp-load-plugins')(),
   minify      = require('gulp-minify-css'),
   pagespeed   = require('psi'),
-  browserSync = require('browser-sync');
+  browserSync = require('browser-sync'),
+  imageop = require('gulp-image-optimization');
 
 var publicPath = './public';
 var config = {
@@ -144,6 +145,20 @@ gulp.task('compile-js', ['test-lint-js'], function () {
 /**********************************************/
 /**********************************************/
 
+
+
+
+gulp.task('images', function(cb) {
+    gulp.src(['public/img/sources/*.*']).pipe($.plumber()).pipe(imageop({
+        optimizationLevel: 7,
+        progressive: true,
+        interlaced: true
+    })).pipe(gulp.dest('public/img')).on('end', cb).on('error', cb);
+});
+
+
+
+
 gulp.task('watch', function () {
   gulp.src('public')
     .pipe($.webserver({
@@ -157,5 +172,6 @@ gulp.task('watch', function () {
 
   gulp.watch(config.lessPath + '/*.less', ['compile-less']);
   gulp.watch(config.jsPath + '/*.js', ['compile-js']);
+  gulp.watch('public/img/sources/*.*', ['images']);
   gulp.watch(publicPath + '/*.html', ['test-validation-html']);
 });
