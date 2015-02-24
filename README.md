@@ -1,5 +1,13 @@
 # Kickstarter
 
+## To do list
+
+* Change index.html in index.php and edit the gulp watch by consequence
+* Clean up public folder by moving less files and all other files that only deserve source goals
+* Clean up Js folder (external things)
+* Make possible to create different work directories with their own index and less/css files in order to create different kickstarter project orientation (landing, blog, website, snippets, ...)
+
+
 ## Documentation
 
 * [Getting Started](docs/getting-started.md) - How to get going with Kickstarter
