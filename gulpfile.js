@@ -6,14 +6,23 @@ var gulp      = require('gulp'),
   browserSync = require('browser-sync'),
   imageop = require('gulp-image-optimization');
 
-var publicPath = './public';
+var publicPath = 'public';
+var sourcePath = 'sources';
+var bowerDir   = 'library';
 var config = {
-  url    : "",
-  lessPath : publicPath + '/less',
-  cssPath  : publicPath + '/css',
-  jsPath   : publicPath + '/js',
-  iconPath : publicPath + '/fonts',
-  bowerDir : './library'
+  url: "",
+  sources: {
+    lessPath : sourcePath + '/less',
+    jsPath   : sourcePath + '/scripts',
+    iconPath : bowerDir   + '/fontawesome/fonts',
+    imgPath  : sourcePath + '/images'
+  },
+  dist: {
+    cssPath  : publicPath + '/css',
+    jsPath   : publicPath + '/js',
+    iconPath : publicPath + '/fonts',
+    imgPath  : publicPath + '/img'
+  }
 };
 
 gulp.task('help', taskListing);
@@ -27,18 +36,25 @@ gulp.task('test', ['test-lint']);
 gulp.task('dist', ['dist-bower', 'dist-icons', 'dist-external']);
 gulp.task('dist-bower', function () {
   $.bower()
-    .pipe(gulp.dest(config.bowerDir));
+    .pipe(gulp.dest(bowerDir));
 });
 gulp.task('dist-icons', ['dist-bower'], function () {
-  gulp.src(config.bowerDir + '/fontawesome/fonts/**.*')
-    .pipe(gulp.dest(config.iconPath));
+  gulp.src(config.sources.iconPath + '/**.*')
+    .pipe(gulp.dest(config.dist.iconPath));
 });
 gulp.task('dist-external', ['dist-bower'], function () {
   gulp.src([
-    config.bowerDir + '/jquery/dist/**.*',
-    config.bowerDir + '/bootstrap/dist/js/**.*'
+    bowerDir + '/jquery/dist/**.*',
+    bowerDir + '/bootstrap/dist/js/**.*',
+    !bowerDir + '/bootstrap/dist/js/npm.js'
   ])
-    .pipe(gulp.dest(config.jsPath + '/external'));
+    .pipe(gulp.dest(config.sources.jsPath + '/external'));
+
+  gulp.src([
+    bowerDir + '/html5shiv/dist/html5shiv.min.js',
+    bowerDir + '/respond-minmax/dest/respond.min.js'
+  ])
+    .pipe(gulp.dest(config.dist.jsPath));
 });
 /**********************************************/
 /**********************************************/
@@ -71,7 +87,7 @@ gulp.task('test-pagespeed-desktop', function () {
 /************* Lint test **********************/
 gulp.task('test-lint', ['test-lint-css', 'test-lint-js']);
 gulp.task('test-lint-css', function () {
-  gulp.src([config.cssPath  + '/*.css'])
+  gulp.src([config.dist.cssPath  + '/*.css'])
     .pipe($.plumber())
     .pipe(browserSync.reload({stream: true, once: false}))
     .pipe($.csslint())
@@ -82,7 +98,7 @@ gulp.task('test-lint-css', function () {
     .pipe($.csslint.reporter());
 });
 gulp.task('test-lint-js', function () {
-  gulp.src([config.jsPath + "/*.js"])
+  gulp.src([config.sources.jsPath + "/*.js"])
     .pipe($.plumber())
     .pipe(browserSync.reload({stream: true, once: false}))
     .pipe($.jshint())
@@ -92,7 +108,7 @@ gulp.task('test-lint-js', function () {
       message: "JS Lint file: <%= file.relative %>",
       templateOptions: {}
     }))
-    .pipe($.if(!browserSync.active, $.jshint.reporter('fail')));
+    .pipe($['if'](!browserSync.active, $.jshint.reporter('fail')));
 });
 /**********************************************/
 /**********************************************/
@@ -115,12 +131,12 @@ gulp.task('test-validation-html', function () {
 /**********************************************/
 /************* Compilation ********************/
 gulp.task('compile-less', function () {
-  gulp.src([config.lessPath + '/*.less'])
+  gulp.src([config.sources.lessPath + '/*.less'])
     .pipe($.plumber())
     .pipe($.concat('style.min.less'))
     .pipe($.less())
     .pipe(minify({keepSpecialComments : 0}))
-    .pipe(gulp.dest(config.cssPath))
+    .pipe(gulp.dest(config.dist.cssPath))
     .pipe($.notify({
       message: "Compilation file: <%= file.relative %>",
       templateOptions: {}
@@ -128,39 +144,39 @@ gulp.task('compile-less', function () {
 });
 gulp.task('compile-js', ['test-lint-js'], function () {
   gulp.src([
-    config.jsPath + '/*.js',
-    '!' + config.jsPath +  '/*.min.js'
+    config.sources.jsPath + '/*.js',
+    config.sources.jsPath + '/external/*.js'
   ])
     .pipe($.plumber())
     .pipe($.sourcemaps.init())
     .pipe($.concat('main.min.js'))
     .pipe($.uglify())
     .pipe($.sourcemaps.write('./'))
-    .pipe(gulp.dest(config.jsPath))
+    .pipe(gulp.dest(config.dist.jsPath))
     .pipe($.notify({
       message: "Compilation file: <%= file.relative %>",
       templateOptions: {}
     }));
 });
-/**********************************************/
-/**********************************************/
-
-
-
-
-gulp.task('images', function(cb) {
-    gulp.src(['public/img/sources/*.*']).pipe($.plumber()).pipe(imageop({
+gulp.task('optimize-images', function (callback) {
+  gulp.src([config.sources.imgPath + '/*.*'])
+    .pipe($.plumber())
+    .pipe(imageop(
+      {
         optimizationLevel: 7,
         progressive: true,
         interlaced: true
-    })).pipe(gulp.dest('public/img')).on('end', cb).on('error', cb);
+      }
+    ))
+    .pipe(gulp.dest(config.dist.imgPath))
+    .on('end', callback)
+    .on('error', callback);
 });
-
-
-
+/**********************************************/
+/**********************************************/
 
 gulp.task('watch', function () {
-  gulp.src('public')
+  gulp.src(publicPath)
     .pipe($.webserver({
       port: 1234,
       livereload: true,
@@ -171,7 +187,8 @@ gulp.task('watch', function () {
     }));
 
   gulp.watch(config.lessPath + '/*.less', ['compile-less']);
-  gulp.watch(config.jsPath + '/*.js', ['compile-js']);
-  gulp.watch('public/img/sources/*.*', ['images']);
+  gulp.watch(sourcePath + '/js/*.js', ['test-lint-js', 'compile-js']);
+  gulp.watch(sourcePath + '/js/external/*.*', ['compile-js']);
+  gulp.watch(sourcePath + '/images/*.*', ['optimize-images']);
   gulp.watch(publicPath + '/*.html', ['test-validation-html']);
 });
