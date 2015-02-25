@@ -4,7 +4,7 @@ var gulp      = require('gulp'),
   minify      = require('gulp-minify-css'),
   pagespeed   = require('psi'),
   browserSync = require('browser-sync'),
-  imageop = require('gulp-image-optimization');
+  imageop     = require('gulp-image-optimization');
 
 var publicPath = 'public';
 var sourcePath = 'sources';
@@ -14,7 +14,8 @@ var config = {
   sources: {
     lessPath : sourcePath + '/less',
     jsPath   : sourcePath + '/scripts',
-    iconPath : bowerDir   + '/fontawesome/fonts',
+    faPath   : bowerDir   + '/fontawesome/fonts',
+    iconPath : sourcePath + '/fonts',
     imgPath  : sourcePath + '/images'
   },
   dist: {
@@ -39,7 +40,10 @@ gulp.task('dist-bower', function () {
     .pipe(gulp.dest(bowerDir));
 });
 gulp.task('dist-icons', ['dist-bower'], function () {
-  gulp.src(config.sources.iconPath + '/**.*')
+  gulp.src([
+    config.sources.faPath + '/**.*',
+    config.sources.iconPath + '/**.*'
+  ])
     .pipe(gulp.dest(config.dist.iconPath));
 });
 gulp.task('dist-external', ['dist-bower'], function () {
@@ -174,7 +178,6 @@ gulp.task('optimize-images', function (callback) {
 });
 /**********************************************/
 /**********************************************/
-
 gulp.task('watch', function () {
   gulp.src(publicPath)
     .pipe($.webserver({
