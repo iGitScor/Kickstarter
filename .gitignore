@@ -1,9 +1,8 @@
 /library
 /public/css
-/public/fonts/*.*
-/public/img/*.*
-/public/js/*min.js
-/public/js/*.map
+/public/fonts
+/public/img
+/public/js
 /node_modules
 npm-debug.log
 .DS_Store
