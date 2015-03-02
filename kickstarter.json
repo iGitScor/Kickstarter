@@ -1,0 +1,22 @@
+{
+  "configuration": {
+    "project": "./config/project.json"
+  },
+  "prompt": {
+    "projects": {
+      "type": "list",
+      "name": "type",
+      "message": "In what type of project do you use Kickstarter ?",
+      "choices": [
+        "jekyll",
+        "plain",
+        "sf2"
+      ]
+    },
+    "site": {
+      "type": "input",
+      "name": "site",
+      "message": "Enter the URL of the website (default: empty)"
+    }
+  }
+}
