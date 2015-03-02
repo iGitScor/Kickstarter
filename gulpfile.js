@@ -61,7 +61,7 @@ gulp.task('compile', function (callback) {
     callback();
   }
 });
-gulp.task('configuration', function () {
+gulp.task('configuration', function (callback) {
   fs.exists(kickstarter.configuration.project, function (appConfigExist) {
     var loadConfig;
     if (appConfigExist) {
@@ -99,8 +99,12 @@ gulp.task('configuration', function () {
                 }
               ))
               .pipe(gulp.dest('./config'));
+            getConfig();
+            callback();
           }
         ));
+    } else {
+      callback();
     }
   });
 });
