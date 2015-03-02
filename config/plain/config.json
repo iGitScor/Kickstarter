@@ -1,0 +1,24 @@
+{
+  "url": "",
+  "tasks": {
+    "dist": true,
+    "compile": true,
+    "optimize": true
+  },
+  "bowerDir": "library",
+  "sources": {
+    "mainPath" : "sources",
+    "lessPath" : "/less",
+    "jsPath"   : "/scripts",
+    "iconPath" : "/fonts",
+    "faPath"   : "/fontawesome/fonts",
+    "imgPath"  : "/images"
+  },
+  "dist": {
+    "mainPath" : "public",
+    "cssPath"  : "/css",
+    "jsPath"   : "/js",
+    "iconPath" : "/fonts",
+    "imgPath"  : "/img"
+  }
+}
