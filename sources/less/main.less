@@ -1,51 +1,38 @@
-//                                                   //
-//                    S U M M A R Y                  //
-// --------------------------------------------------//   
-/*
-    - UTILITIES
-    - BUTTONS
-    - WRAPPER DIVS
-    - HEADER
-    - NAV
-    - FOOTER
-    */
+/***
+TABLE OF CONTENTS
 
-// --------------------------------------------------//
-//
-// U T I L I T I E S
-// --------------------------------------------------
-.rowS {
-  display: table;
-  width: 100%;
-  table-layout: fixed;
-  overflow: hidden;
-  > * {
-    display: table-cell;
-    vertical-align: middle;
-  }
-}
-//
-// B U T T O N S
-// --------------------------------------------------
-.btn {
-  font-family: @font-family-brand;
-  border-radius: @border-radius-small;
-}
-.btn-secondary {
-  .button-variant(@btn-secondary-color;
-  @btn-secondary-bg;
-  @btn-secondary-border);
-}
-.fa-custom-butterfly {
-  width: 30px;
-  height: 17px;
-  background: url('../img/picto-butterfly.png') 0px no-repeat;
-}
-//
-// W R A P P E R  D I V S
-// --------------------------------------------------
+* Reset *
+
+* Global Style *
+
+* Page structure *
+Wrapper divs
+Header
+Nav
+Footer
+
+* Custom blocks *
+Feature Block
+Testimonial Block
+Contact Block  
+
+* Miscellaneous *
+Utilities
+Buttons
+
+***/
+/*** PAGE STRUCTURE
+   ====================================================================== */
+/* WRAPPER DIVS */
+/**
+*
+* Divs that wrap main blocks
+* Helps for styling and positionning purpose
+*
+*/
+
 #site-wrapper {
-  // background: url('/img/super-bg.jpg') top no-repeat;
+  /* background: url('/img/super-bg.jpg') top no-repeat; SWITCH add a uber background to the page */
 }
 .content-wrapper {
   > .container {
@@ -53,9 +40,8 @@
     background: #FFF;
   }
 }
-//
-// H E A D E R 
-// --------------------------------------------------
+/* HEADER */
+
 .header-top {
   color: #FFF;
   font-family: @font-family-brand;
@@ -83,9 +69,8 @@
     }
   }
 }
-//
-// F O O T E R 
-// --------------------------------------------------
+/* FOOTER */
+
 #footer {
   background: #FFF;
   > * {
@@ -94,9 +79,15 @@
     border-top: 1px solid #eee;
   }
 }
-//
-// F E A T U R E S  B L O C K
-// --------------------------------------------------
+/*** CUSTOM BLOCKS
+   ====================================================================== */
+/* FEATURE BLOCK */
+/**
+* 
+* Blocks that present different features of the website
+*
+*/
+
 .features {
   padding: 30px 0px 0px;
   background-color: #6F3896;
@@ -136,9 +127,13 @@
     }
   }
 }
-//
-// T E S T I M O N I A L S  B L O C K
-// --------------------------------------------------
+/* TESTIMONIAL BLOCK */
+/**
+*
+* As it is written ... testimonials
+*
+*/
+
 .testimonials {
   margin: 0px 0 0 0;
   padding: 30px 0px 30px;
@@ -209,9 +204,13 @@
     }
   }
 }
-//
-// C O N T A C T  B L O C K
-// --------------------------------------------------
+/* CONTACT BLOCK */
+/**
+*
+* Contact Form on the page
+*
+*/
+
 .contact {
   margin: 0;
   padding: 30px 0px 0px;
@@ -237,4 +236,44 @@
       color: @brand-secondary;
     }
   }
+}
+/*** MISCELLANEOUS
+   ====================================================================== */
+/* UTILITIES */
+/**
+*
+* Set of atomic classes that help a lot
+*
+*/
+
+.rowS {
+  display: table;
+  width: 100%;
+  table-layout: fixed;
+  overflow: hidden;
+  > * {
+    display: table-cell;
+    vertical-align: middle;
+  }
+}
+/* BUTTON */
+/**
+*
+* Everything that's concern button customization
+*
+*/
+
+.btn {
+  font-family: @font-family-brand;
+  border-radius: @border-radius-small;
+}
+.btn-secondary {
+  .button-variant(@btn-secondary-color;
+  @btn-secondary-bg;
+  @btn-secondary-border);
+}
+.fa-custom-butterfly {
+  width: 30px;
+  height: 17px;
+  background: url('../img/picto-butterfly.png') 0px no-repeat;
 }

@@ -1,84 +1,94 @@
-//                    NAVS'S STYLES                  //
-//                    S U M M A R Y                  //
-// --------------------------------------------------//   
-/*
-    - NAVBAR
-    - NAVBAR-DEFAULT
-    */
-// --------------------------------------------------//
-// Mixin
+/***
+TABLE OF CONTENTS
+
+* Mixin *
+
+* Navbar *
+Navbar default
+Navbar nav
+Navbar toggle
+
+* MediaQueries *
+
+
+***/
+/*** MIXIN
+   ====================================================================== */
+/* OFFSETED-LINK */
+/**
+*
+* offset link when it's needed
+*
+*/
+
 .offseted-link {
   margin-top: -4px;
   padding-top: 4px;
   padding-bottom: 4px;
   background-color: @navbar-default-link-hover-bg;
 }
-//
+/*** NAVBAR
+   ====================================================================== */
 
 .navbar {
   border-radius: 0;
 }
+/* NAVBAR DEFAULT */
 
 .navbar-default {
- font-family: @font-family-brand;
-
- .navbar-nav {
-  > li {
-
-    &:hover {
+  font-family: @font-family-brand;
+  /* NAVBAR NAV */
+  
+  .navbar-nav {
+    > li {
+      &:hover {
+        .offseted-link;
+      }
+    }
+    > .active {
       .offseted-link;
     }
-
-  }
-  > .active {
-    .offseted-link;
-  }
-  > .dropdown.open {
-    .offseted-link;
-  }
-
-  > li > a {
-    color: @navbar-default-link-color;
-
-    &:hover{
-      color: @navbar-default-link-hover-color;
-      background-color: @navbar-default-link-hover-bg;
+    > .dropdown.open {
+      .offseted-link;
     }
-    &:focus {
+    > li > a {
+      color: @navbar-default-link-color;
+      &:hover {
+        color: @navbar-default-link-hover-color;
+        background-color: @navbar-default-link-hover-bg;
+      }
+      &:focus {
+        background-color: transparent;
+      }
+    }
+    > .active > a {
+      &, &:hover, &:focus {
+        color: @navbar-default-link-active-color;
+        background-color: @navbar-default-link-active-bg;
+      }
+    }
+    > .disabled > a {
+      &, &:hover, &:focus {
+        color: @navbar-default-link-disabled-color;
+        background-color: @navbar-default-link-disabled-bg;
+      }
+    }
+  }
+  /* NAVBAR TOGGLE */
+  
+  .navbar-toggle {
+    border-color: @navbar-default-toggle-border-color;
+    &:hover, &:focus {
       background-color: transparent;
     }
   }
-  > .active > a {
-    &,
-    &:hover,
-    &:focus {
-      color: @navbar-default-link-active-color;
-      background-color: @navbar-default-link-active-bg;
-    }
-  }
-  > .disabled > a {
-    &,
-    &:hover,
-    &:focus {
-      color: @navbar-default-link-disabled-color;
-      background-color: @navbar-default-link-disabled-bg;
-    }
-  }
 }
+/*** MEDIA QUERIES
+   ====================================================================== */
 
-.navbar-toggle {
-  border-color: @navbar-default-toggle-border-color;
-  &:hover,
-  &:focus {
-    background-color: transparent;
-  }
-}
-}
-
-// Media Queries
-@media (min-width: @screen-md-min){
+@media (min-width: @screen-md-min) {
   .navbar.fixed-height {
-   height: @navbar-height;
- }
+    height: @navbar-height;
+  }
 }
-//
+
