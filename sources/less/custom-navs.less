@@ -25,7 +25,6 @@ Navbar toggle
   margin-top: -4px;
   padding-top: 4px;
   padding-bottom: 4px;
-  background-color: @navbar-default-link-hover-bg;
 }
 /*** NAVBAR
    ====================================================================== */
@@ -43,6 +42,17 @@ Navbar toggle
     > li {
       &:hover {
         .offseted-link;
+        background-color: @navbar-default-link-hover-bg;
+      }
+    }
+    > li.inverse {
+      &:hover {
+        background-color: @brand-primary;
+      }
+      > a {
+        &:hover {
+          background-color: @brand-primary;
+        }
       }
     }
     > .active {
@@ -73,13 +83,13 @@ Navbar toggle
         background-color: @navbar-default-link-disabled-bg;
       }
     }
-  }
-  /* NAVBAR TOGGLE */
-  
-  .navbar-toggle {
-    border-color: @navbar-default-toggle-border-color;
-    &:hover, &:focus {
-      background-color: transparent;
+    /* navbar toggle in navbar-nav */
+    
+    .navbar-toggle {
+      border-color: @navbar-default-toggle-border-color;
+      &:hover, &:focus {
+        background-color: transparent;
+      }
     }
   }
 }
@@ -91,4 +101,3 @@ Navbar toggle
     height: @navbar-height;
   }
 }
-
