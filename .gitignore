@@ -5,5 +5,6 @@ config/project.json
 /public/img
 /public/js
 /node_modules
+/sources/scripts/external
 npm-debug.log
 .DS_Store
