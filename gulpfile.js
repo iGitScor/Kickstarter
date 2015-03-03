@@ -54,7 +54,7 @@ gulp.task('test', ['test-lint', 'test-validation']);
 gulp.task('compile', function (callback) {
   if (config.tasks.compile) {
     runSequence(
-      ['compile-less', 'compile-js'],
+      ['compile-less', 'compile-sass', 'compile-js'],
       callback
     );
   } else {
@@ -239,6 +239,17 @@ gulp.task('compile-less', function () {
       templateOptions: {}
     }));
 });
+gulp.task('compile-sass', function () {
+  gulp.src([config.sources.mainPath + config.sources.sassPath + '/*.scss'])
+    .pipe($.sourcemaps.init())
+    .pipe($.sass())
+    .pipe($.sourcemaps.write())
+    .pipe(gulp.dest(config.dist.mainPath + config.dist.cssPath))
+    .pipe($.notify({
+      message: "Compilation file: <%= file.relative %>",
+      templateOptions: {}
+    }));
+});
 gulp.task('compile-js', ['test-lint-js'], function () {
   return gulp.src([
     config.sources.mainPath + config.sources.jsPath + '/*.js',
@@ -287,6 +298,7 @@ gulp.task('watch', ['compile', 'optimize-images'], function () {
     }));
 
   gulp.watch(config.sources.mainPath + config.sources.lessPath + '/*.less', ['compile-less']);
+  gulp.watch(config.sources.mainPath + config.sources.sassPath + '/*.scss', ['compile-sass']);
   gulp.watch(config.sources.mainPath + config.sources.jsPath + '/*.js', ['test-lint-js', 'compile-js']);
   gulp.watch(config.sources.mainPath + config.sources.jsPath + '/external/*.*', ['compile-js']);
   gulp.watch(config.sources.mainPath + config.sources.imgPath + '/*.*', ['optimize-images']);
