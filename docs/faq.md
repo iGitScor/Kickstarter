@@ -4,17 +4,17 @@
 
 If gulp scripts fail, check if gulp is installed globally by launching `gulp help` command.
 
-**Solution** : See the CLI documentation for alternatives. Scripts have to be executed with npm in this case.
+**Solution** : Install gulp globally `npm install gulp -g`.
 
 ### Less files are not automatically compiled ?
 
-Yes. But only if you execute the command `gulp watch`, otherwise you must execute `gulp compile` manually.
+Yes they are, but only if you execute the command `gulp watch`, otherwise you must execute `gulp compile` manually.
 
 ### Pagespeed scripts fail ?
 
-They only fail if the configuration is not settled.
-Edit your gulpfile.js file and specify config.url.
+These scripts only fail if the configuration is not settled.
+Edit your project configuration file and specify config.url or launch the configuration command.
 
 ### When using npm, when using gulp ?
 
-Always use gulp scripts directly if gulp is installed globally.
+Always use gulp scripts directly if gulp is installed globally. npm is only used to install packages.

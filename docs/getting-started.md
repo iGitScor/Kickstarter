@@ -9,7 +9,7 @@ $ npm install
 This will install server packages (gulp and gulp plugins and other dependencies)
 
 ```sh
-$ gulp deploy
+$ gulp installation
 ```
 
 This will install bower packages (bootstrap, fontawesome, jquery and other dependencies)
@@ -19,8 +19,8 @@ This will install bower packages (bootstrap, fontawesome, jquery and other depen
 ### 2. Use the kickstarter
 
 ```sh
-$ gulp watch
+$ ./kickstarter.sh
 ```
 
-The `gulp watch` command permits to launch your development environment.
-This will automatically compile less files.
+The `kickstarter.sh` script will launch two gulp tasks (kick and start). It permits to launch your development environment.
+This will automatically compile less or sass files, minify javascript and optimize images.
