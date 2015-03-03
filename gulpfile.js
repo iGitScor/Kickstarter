@@ -15,7 +15,8 @@ var gulp      = require('gulp'),
   browserSync = require('browser-sync'),
   imageop     = require('gulp-image-optimization'),
   runSequence = require('run-sequence').use(gulp),
-  fs          = require('fs');
+  fs          = require('fs'),
+  path        = require('path');
 /*************************************************************
  *************************************************************/
 
@@ -227,11 +228,20 @@ gulp.task('test-validation-html', function () {
 
 /**********************************************/
 /************* Compilation ********************/
-gulp.task('compile-less', function () {
+gulp.task('compile-less', function (callback) {
   return gulp.src([config.sources.mainPath + config.sources.lessPath + '/*.less'])
-    .pipe($.plumber())
     .pipe($.concat('style.min.less'))
     .pipe($.less())
+    .on(
+      'error',
+      function () {
+        gulp.src('.')
+          .pipe(
+            $.notify({message: "A pony has encountered a rainbow issue", "icon": path.join(__dirname, "gulp.gif")})
+          );
+        callback();
+      }
+    )
     .pipe(minify({keepSpecialComments : 0}))
     .pipe(gulp.dest(config.dist.mainPath + config.dist.cssPath))
     .pipe($.notify({
@@ -286,7 +296,7 @@ gulp.task('optimize-images', function (callback) {
 });
 /**********************************************/
 /**********************************************/
-gulp.task('watch', ['compile', 'optimize-images'], function () {
+gulp.task('watch', function () {
   gulp.src(config.dist.mainPath)
     .pipe($.webserver({
       port: 1234,
