@@ -1,7 +1,7 @@
 {
   "name": "Kickstarter",
   "description": "Set of front bootstrap projects using cool stuff",
-  "version": "0.1.0",
+  "version": "0.9.2",
   "repository": {
     "type": "git",
     "url": "https://github.com/1001Pharmacies/kickstarter.git"
@@ -38,6 +38,7 @@
     "gulp-w3cjs": "^0.2.1",
     "gulp-webserver": "^0.9.0",
     "jshint-stylish": "^1.0.0",
+    "lodash": "^3.3.1",
     "psi": "^1.0.5",
     "run-sequence": "^1.0.2"
   },

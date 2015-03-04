@@ -1,7 +1,7 @@
 {
   "name": "Kickstarter",
   "description": "Set of front bootstrap projects using cool stuff",
-  "version": "0.1.0",
+  "version": "0.9.2",
   "dependencies": {
     "fontawesome": "~4.3.0",
     "bootstrap": "~3.3.2",

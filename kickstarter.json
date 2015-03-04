@@ -6,12 +6,7 @@
     "projects": {
       "type": "list",
       "name": "type",
-      "message": "In what type of project do you use Kickstarter ?",
-      "choices": [
-        "jekyll",
-        "plain",
-        "sf2"
-      ]
+      "message": "In what type of project do you use Kickstarter ?"
     },
     "site": {
       "type": "input",

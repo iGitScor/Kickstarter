@@ -16,7 +16,8 @@ var gulp      = require('gulp'),
   imageop     = require('gulp-image-optimization'),
   runSequence = require('run-sequence').use(gulp),
   fs          = require('fs'),
-  path        = require('path');
+  path        = require('path'),
+  _           = require('lodash');
 /*************************************************************
  *************************************************************/
 
@@ -27,6 +28,12 @@ var gulp      = require('gulp'),
 var config;
 var project;
 var kickstarter = require('./kickstarter.json');
+function getFolders() {
+  return fs.readdirSync('./config')
+    .filter(function (file) {
+      return fs.statSync(path.join('./config', file)).isDirectory();
+    });
+}
 function getConfig() {
   try {
     project = require(kickstarter.configuration.project);
@@ -35,15 +42,22 @@ function getConfig() {
     }
   } catch (exception) {
     // Display that the configuration is missing only if we run another tasks than configuration one.
-    if (this.process.argv[this.process.argv.length - 1] !== 'configuration') {
+    if (_.last(this.process.argv) !== 'configuration') {
       console.warn('The project is not configured. Please run gulp configuration.');
     }
   }
 }
+var configFolders = {
+  choices: getFolders()
+};
 getConfig();
 /*************************************************************
  *************************************************************/
 
+/*************************************************************
+ *************************************************************
+ * Shortcut kickstarter's tasks
+ */
 gulp.task('kick', ['configuration'], function () {
   gulp.start('installation');
 });
@@ -71,9 +85,10 @@ gulp.task('configuration', function (callback) {
     if (!appConfigExist || !loadConfig.config) {
       gulp.src('.')
         .pipe($.prompt.prompt(
-          kickstarter.prompt.projects,
+          _.merge(kickstarter.prompt.projects, configFolders),
           function (res) {
             if (!appConfigExist) {
+              // Create an empty Object structure in a JSON configuration file
               fs.writeFile(kickstarter.configuration.project, '{}', function (fsError) {
                 if (fsError) {
                   console.error(fsError);
