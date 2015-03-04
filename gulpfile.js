@@ -294,6 +294,9 @@ gulp.task('optimize-images', function (callback) {
     callback();
   }
 });
+
+// TODO CREATE A DIST HTML TASK
+
 /**********************************************/
 /**********************************************/
 gulp.task('watch', function () {
@@ -312,5 +315,5 @@ gulp.task('watch', function () {
   gulp.watch(config.sources.mainPath + config.sources.jsPath + '/*.js', ['test-lint-js', 'compile-js']);
   gulp.watch(config.sources.mainPath + config.sources.jsPath + '/external/*.*', ['compile-js']);
   gulp.watch(config.sources.mainPath + config.sources.imgPath + '/*.*', ['optimize-images']);
-  gulp.watch(config.dist.mainPath + '/*.html', ['test-validation-html']);
+  gulp.watch(config.sources.mainPath + '/*.html', ['test-validation-html', 'dist-html']);
 });
