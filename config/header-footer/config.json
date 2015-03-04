@@ -7,7 +7,7 @@
   },
   "bowerDir": "library",
   "sources": {
-    "mainPath" : "sources/plain",
+    "mainPath" : "sources/header-footer",
     "lessPath" : "/less",
     "jsPath"   : "/scripts",
     "iconPath" : "/fonts",
@@ -15,7 +15,7 @@
     "imgPath"  : "/images"
   },
   "dist": {
-    "mainPath" : "public/plain",
+    "mainPath" : "public/header-footer",
     "cssPath"  : "/css",
     "jsPath"   : "/js",
     "iconPath" : "/fonts",
