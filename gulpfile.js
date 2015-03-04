@@ -291,6 +291,17 @@ gulp.task('compile-js', ['test-lint-js'], function () {
       templateOptions: {}
     }));
 });
+gulp.task('compile-twig', function () {
+  return gulp.src(config.sources.mainPath + '/views/*.twig')
+    .pipe($.data(function (file) {
+      return require('./' + config.sources.mainPath + '/content/' + path.basename(file.path) + '.json');
+    }))
+    .pipe($.twig())
+    .pipe(gulp.dest(config.dist.mainPath));
+});
+
+/**********************************************/
+/************* Optimization ********************/
 gulp.task('optimize-images', function (callback) {
   if (config.tasks.optimize) {
     gulp.src([config.sources.mainPath + config.sources.imgPath + '/*.*'])
