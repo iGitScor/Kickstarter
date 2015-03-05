@@ -69,7 +69,7 @@ gulp.task('test', ['test-lint', 'test-validation']);
 gulp.task('compile', function (callback) {
   if (config.tasks.compile) {
     runSequence(
-      ['compile-less', 'compile-sass', 'compile-js'],
+      ['compile-twig', 'compile-less', 'compile-sass', 'compile-js'],
       callback
     );
   } else {
@@ -145,9 +145,11 @@ gulp.task('dist', function (callback) {
     callback();
   }
 });
-gulp.task('dist-bower', function () {
-  return $.bower()
+gulp.task('dist-bower', function (callback) {
+  $.bower()
     .pipe(gulp.dest(config.bowerDir));
+
+  callback();
 });
 gulp.task('dist-icons', function () {
   return gulp.src([
@@ -156,7 +158,7 @@ gulp.task('dist-icons', function () {
   ])
     .pipe(gulp.dest(config.dist.mainPath + config.dist.iconPath));
 });
-gulp.task('dist-external', function () {
+gulp.task('dist-external', function (callback) {
   gulp.src([
     config.bowerDir + '/jquery/dist/**.*',
     config.bowerDir + '/bootstrap/dist/js/**.*',
@@ -164,11 +166,13 @@ gulp.task('dist-external', function () {
   ])
     .pipe(gulp.dest(config.sources.mainPath + config.sources.jsPath + '/external'));
 
-  return gulp.src([
+  gulp.src([
     config.bowerDir + '/html5shiv/dist/html5shiv.min.js',
     config.bowerDir + '/respond-minmax/dest/respond.min.js'
   ])
     .pipe(gulp.dest(config.dist.mainPath + config.dist.jsPath));
+
+  callback();
 });
 /**********************************************/
 /**********************************************/
@@ -201,27 +205,21 @@ gulp.task('test-pagespeed-desktop', function () {
 /************* Lint test **********************/
 gulp.task('test-lint', ['test-lint-css', 'test-lint-js']);
 gulp.task('test-lint-css', function () {
-  gulp.src([config.dist.mainPath + config.dist.cssPath  + '/*.css'])
+  return gulp.src([config.dist.mainPath + config.dist.cssPath  + '/*.css'])
     .pipe($.plumber())
     .pipe(browserSync.reload({stream: true, once: false}))
     .pipe($.csslint())
-    .pipe($.notify({
-      message: "CSS Lint file: <%= file.relative %>",
-      templateOptions: {}
-    }))
+    .pipe($.notify({message: "CSS Lint file: <%= file.relative %>"}))
     .pipe($.csslint.reporter());
 });
 gulp.task('test-lint-js', function () {
-  gulp.src([config.sources.mainPath + config.sources.jsPath + "/*.js"])
+  return gulp.src([config.sources.mainPath + config.sources.jsPath + "/*.js"])
     .pipe($.plumber())
     .pipe(browserSync.reload({stream: true, once: false}))
     .pipe($.jshint())
     .pipe($.jshint.reporter('jshint-stylish'))
     .pipe($.jscs({esnext: true}))
-    .pipe($.notify({
-      message: "JS Lint file: <%= file.relative %>",
-      templateOptions: {}
-    }));
+    .pipe($.notify({message: "JS Lint file: <%= file.relative %>"}));
 });
 /**********************************************/
 /**********************************************/
@@ -230,13 +228,10 @@ gulp.task('test-lint-js', function () {
 /************* Validation *********************/
 gulp.task('test-validation', ['test-validation-html']);
 gulp.task('test-validation-html', function () {
-  gulp.src(config.dist.mainPath  + '/*.html')
+  return gulp.src(config.dist.mainPath + config.dist.htmlPath + '/*.html')
     .pipe($.plumber())
     .pipe($.w3cjs())
-    .pipe($.notify({
-      message: "HTML Validator: <%= file.relative %>",
-      templateOptions: {}
-    }));
+    .pipe($.notify({message: "HTML Validator: <%= file.relative %>"}));
 });
 /**********************************************/
 /**********************************************/
@@ -259,10 +254,7 @@ gulp.task('compile-less', function (callback) {
     )
     .pipe(minify({keepSpecialComments : 0}))
     .pipe(gulp.dest(config.dist.mainPath + config.dist.cssPath))
-    .pipe($.notify({
-      message: "Compilation file: <%= file.relative %>",
-      templateOptions: {}
-    }));
+    .pipe($.notify({message: "Compilation file: <%= file.relative %>"}));
 });
 gulp.task('compile-sass', function () {
   gulp.src([config.sources.mainPath + config.sources.sassPath + '/*.scss'])
@@ -270,10 +262,7 @@ gulp.task('compile-sass', function () {
     .pipe($.sass())
     .pipe($.sourcemaps.write())
     .pipe(gulp.dest(config.dist.mainPath + config.dist.cssPath))
-    .pipe($.notify({
-      message: "Compilation file: <%= file.relative %>",
-      templateOptions: {}
-    }));
+    .pipe($.notify({message: "Compilation file: <%= file.relative %>"}));
 });
 gulp.task('compile-js', ['test-lint-js'], function () {
   return gulp.src([
@@ -286,19 +275,18 @@ gulp.task('compile-js', ['test-lint-js'], function () {
     .pipe($.uglify())
     .pipe($.sourcemaps.write('./'))
     .pipe(gulp.dest(config.dist.mainPath + config.dist.jsPath))
-    .pipe($.notify({
-      message: "Compilation file: <%= file.relative %>",
-      templateOptions: {}
-    }));
+    .pipe($.notify({message: "Compilation file: <%= file.relative %>"}));
 });
 gulp.task('compile-twig', function () {
-  return gulp.src(config.sources.mainPath + '/views/*.twig')
+  return gulp.src(config.sources.mainPath + config.sources.twigPath + '/*.twig')
     .pipe($.data(function (file) {
       return require('./' + config.sources.mainPath + '/content/' + path.basename(file.path) + '.json');
     }))
     .pipe($.twig())
-    .pipe(gulp.dest(config.dist.mainPath));
+    .pipe(gulp.dest(config.dist.mainPath + config.dist.htmlPath));
 });
+/**********************************************/
+/**********************************************/
 
 /**********************************************/
 /************* Optimization ********************/
@@ -320,12 +308,11 @@ gulp.task('optimize-images', function (callback) {
     callback();
   }
 });
-
-// TODO CREATE A DIST HTML TASK
-
 /**********************************************/
 /**********************************************/
+
 gulp.task('watch', function () {
+  // Create a web server
   gulp.src(config.dist.mainPath)
     .pipe($.webserver({
       port: 1234,
@@ -336,10 +323,12 @@ gulp.task('watch', function () {
       https: false
     }));
 
+  // Watch files modification 
   gulp.watch(config.sources.mainPath + config.sources.lessPath + '/*.less', ['compile-less']);
   gulp.watch(config.sources.mainPath + config.sources.sassPath + '/*.scss', ['compile-sass']);
   gulp.watch(config.sources.mainPath + config.sources.jsPath + '/*.js', ['test-lint-js', 'compile-js']);
   gulp.watch(config.sources.mainPath + config.sources.jsPath + '/external/*.*', ['compile-js']);
   gulp.watch(config.sources.mainPath + config.sources.imgPath + '/*.*', ['optimize-images']);
-  gulp.watch(config.sources.mainPath + '/*.html', ['test-validation-html', 'dist-html']);
+  gulp.watch(config.sources.mainPath + config.sources.twigPath + '/*.twig', ['compile-twig']);
+  gulp.watch(config.sources.mainPath + '/*.html', ['test-validation-html']);
 });
