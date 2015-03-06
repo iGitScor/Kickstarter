@@ -1,26 +1,29 @@
 {
-  "url": "",
-  "tasks": {
-    "dist": false,
-    "compile": false,
-    "optimize": false
-  },
   "bowerDir": "library",
   "sources": {
-    "mainPath" : "sources",
-    "lessPath" : "/less",
-    "jsPath"   : "/scripts",
-    "iconPath" : "/fonts",
-    "faPath"   : "/fontawesome/fonts",
-    "imgPath"  : "/images",
-    "twigPath" : "/views"
+    "mainPath" : "sources/EXAMPLE",
+    "trees": [
+      {
+        "sassPath" : "/sass",
+        "lessPath" : "/less",
+        "jsPath"   : "/scripts",
+        "iconPath" : "/fonts",
+        "faPath"   : "/fontawesome/fonts",
+        "imgPath"  : "/images",
+        "twigPath" : "/views"
+      }
+    ]
   },
   "dist": {
-    "mainPath" : "public",
-    "cssPath"  : "/css",
-    "jsPath"   : "/js",
-    "iconPath" : "/fonts",
-    "imgPath"  : "/img",
-    "htmlPath" : ""
+    "mainPath" : "public/EXAMPLE",
+    "trees": [
+      {
+        "cssPath"  : "/css",
+        "jsPath"   : "/js",
+        "iconPath" : "/fonts",
+        "imgPath"  : "/img",
+        "htmlPath" : ""
+      }
+    ]
   }
 }

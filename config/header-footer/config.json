@@ -1,10 +1,4 @@
 {
-  "url": "",
-  "tasks": {
-    "dist": true,
-    "compile": true,
-    "optimize": true
-  },
   "bowerDir": "library",
   "sources": {
     "mainPath" : "sources/header-footer",
