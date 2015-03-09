@@ -1,7 +1,7 @@
 {
   "name": "Kickstarter",
   "description": "Set of front bootstrap projects using cool stuff",
-  "version": "0.9.4",
+  "version": "0.3.0",
   "repository": {
     "type": "git",
     "url": "https://github.com/1001Pharmacies/kickstarter.git"

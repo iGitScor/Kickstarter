@@ -5,15 +5,18 @@
  * Use of twig for reusable elements
  * Creation of a sub-project "common"
 
-## 0.9.2 (March 4, 2015)
+## Features
 
-Features:
+### 0.3.0 (March 9, 2015)
+
+  * Externalization of core kickstarter methods in a library
+  * Creation of multiple sub-projects modules
+
+### 0.2.0 (March 4, 2015)
 
   * Multiple sub-projects support
 
-## 0.9.1 (March 3, 2015)
-
-Features:
+### 0.1.0 (March 3, 2015)
 
  * Support plain project
  * Support less and sass preprocessors
