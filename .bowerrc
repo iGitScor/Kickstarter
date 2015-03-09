@@ -1,5 +1,5 @@
 {
-	"analytics": false,
+  "analytics": false,
   "directory" : "bower",
   "json": "bower.json"
 }
