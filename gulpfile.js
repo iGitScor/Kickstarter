@@ -152,18 +152,25 @@ gulp.task('dist-bower', function (callback) {
   callback();
 });
 gulp.task('dist-icons', function (callback) {
-  if (_.includes(project.services, "dist")) {
-    gulp.src([
-      config.bowerDir + config.sources.faPath + '/**.*',
-      config.sources.mainPath + config.sources.iconPath + '/**/*.*'
-    ])
-      .pipe(gulp.dest(config.dist.mainPath + config.dist.iconPath));
+  if (_.includes(project.services, "dist") && config.dist.iconPath !== undefined) {
+    if (config.sources.faPath !== undefined) {
+      gulp.src([
+        config.bowerDir + config.sources.faPath + '/**.*'
+      ])
+        .pipe(gulp.dest(config.dist.mainPath + config.dist.iconPath));
+    }
+    if (config.sources.iconPath !== undefined) {
+      gulp.src([
+        config.bowerDir + config.sources.iconPath + '/**.*'
+      ])
+        .pipe(gulp.dest(config.dist.mainPath + config.dist.iconPath));
+    }
   }
 
   callback();
 });
 gulp.task('dist-external', function (callback) {
-  if (_.includes(project.services, "dist")) {
+  if (_.includes(project.services, "dist") && config.sources.jsPath !== undefined && config.dist.jsPath) {
     gulp.src([
       config.bowerDir + '/jquery/dist/**.*',
       config.bowerDir + '/bootstrap/dist/js/**.*',
@@ -238,12 +245,12 @@ gulp.task('compile-less', function (callback) {
         .pipe($.less())
         .on(
           'error',
-          function () {
+          function (error) {
             gulp.src('.')
               .pipe(
                 $.notify({message: "A pony has encountered a rainbow issue", "icon": path.join(__dirname, "gulp.gif")})
               );
-            callback();
+            console.error(error);
           }
         )
         .pipe(minify({keepSpecialComments : 0}))
@@ -272,12 +279,12 @@ gulp.task('compile-sass', function (callback) {
         .pipe($.sass())
         .on(
           'error',
-          function () {
+          function (error) {
             gulp.src('.')
               .pipe(
                 $.notify({message: "A pony has encountered a rainbow issue", "icon": path.join(__dirname, "gulp.gif")})
               );
-            callback();
+            console.error(error);
           }
         )
         .pipe($.sourcemaps.write())
@@ -308,7 +315,7 @@ gulp.task('compile-twig', function (callback) {
         return require('./' + config.sources.mainPath + '/content/' + path.basename(file.path) + '.json');
       }))
       .pipe($.twig())
-      .pipe(gulp.dest(lib.getSrc(config.dist, 'htmlPath')));
+      .pipe(gulp.dest('./' + lib.getSrc(config.dist, 'htmlPath')));
   }
 
   callback();
