@@ -1,11 +1,17 @@
 ## Roadmap 
 
  * Symfony2, jekyll, AngularJS support
- * Multiple sub-projects support
  * PHP webserver for dynamic content (plain project)
  * Use of twig for reusable elements
+ * Creation of a sub-project "common"
 
-## 0.9.1 (March 3, 2014)
+## 0.9.2 (March 4, 2015)
+
+Features:
+
+  * Multiple sub-projects support
+
+## 0.9.1 (March 3, 2015)
 
 Features:
 

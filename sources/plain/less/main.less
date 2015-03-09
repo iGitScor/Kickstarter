@@ -1,0 +1,126 @@
+/***
+TABLE OF CONTENTS
+
+* Reset *
+
+* Global Style *
+
+* Page structure *
+Wrapper divs
+Header
+Nav
+Footer
+
+* Custom blocks *
+Feature Block
+Testimonial Block
+Contact Block  
+
+* Miscellaneous *
+Utilities
+Buttons
+
+***/
+/*** PAGE STRUCTURE
+   ====================================================================== */
+/* WRAPPER DIVS */
+/**
+*
+* Divs that wrap main blocks
+* Helps for styling and positionning purpose
+*
+*/
+
+#site-wrapper {
+  /* background: url('/img/super-bg.jpg') top no-repeat; SWITCH add a uber background to the page */
+}
+.content-wrapper {
+  > .container {
+    padding-bottom: 40px;
+    background: #FFF;
+  }
+}
+/* HEADER */
+
+.header-top {
+  color: #FFF;
+  font-family: @font-family-brand;
+  background: @gray-base;
+  h1 {
+    margin: 0px;
+    line-height: @line-height-computed;
+    font-size: @font-size-small;
+  }
+}
+.header-mid {
+  padding: @padding-large-vertical 0;
+  .delivery-point {
+    float: right;
+    .picto {
+      display: inline-block;
+      margin-right: 5px;
+      vertical-align: middle;
+      font-size: 32px;
+    }
+    .txt {
+      display: inline-block;
+      line-height: 1.1;
+      vertical-align: middle;
+    }
+  }
+}
+/* FOOTER */
+
+#footer {
+  background: #FFF;
+  > * {
+    padding-top: 40px;
+    padding-bottom: 40px;
+    border-top: 1px solid #eee;
+  }
+}
+/*** CUSTOM BLOCKS
+   ====================================================================== */
+
+
+
+/*** MISCELLANEOUS
+   ====================================================================== */
+/* UTILITIES */
+/**
+*
+* Set of atomic classes that help a lot
+*
+*/
+
+.rowS {
+  display: table;
+  width: 100%;
+  table-layout: fixed;
+  overflow: hidden;
+  > * {
+    display: table-cell;
+    vertical-align: middle;
+  }
+}
+/* BUTTON */
+/**
+*
+* Everything that's concern button customization
+*
+*/
+
+.btn {
+  font-family: @font-family-brand;
+  border-radius: @border-radius-small;
+}
+.btn-secondary {
+  .button-variant(@btn-secondary-color;
+  @btn-secondary-bg;
+  @btn-secondary-border);
+}
+.fa-custom-butterfly {
+  width: 30px;
+  height: 17px;
+  background: url('../img/picto-butterfly.png') 0px no-repeat;
+}

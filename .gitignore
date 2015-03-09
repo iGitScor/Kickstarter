@@ -1,10 +1,7 @@
-config/project.json
-/library
-/public/css
-/public/fonts
-/public/img
-/public/js
+/config/project.json
+/bower
+/public
 /node_modules
-/sources/scripts/external
+/sources/**/scripts/external
 npm-debug.log
 .DS_Store

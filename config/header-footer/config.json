@@ -1,0 +1,20 @@
+{
+  "bowerDir": "bower",
+  "sources": {
+    "mainPath" : "sources/header-footer",
+    "lessPath" : "/less",
+    "jsPath"   : "/scripts",
+    "iconPath" : "/fonts",
+    "faPath"   : "/fontawesome/fonts",
+    "imgPath"  : "/images",
+    "twigPath" : "/views"
+  },
+  "dist": {
+    "mainPath" : "public/header-footer",
+    "cssPath"  : "/css",
+    "jsPath"   : "/js",
+    "iconPath" : "/fonts",
+    "imgPath"  : "/img",
+    "htmlPath" : ""
+  }
+}

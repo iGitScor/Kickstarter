@@ -1,0 +1,19 @@
+{
+  "bowerDir": "bower",
+  "sources": {
+    "mainPath" : "sources/sf2/src",
+    "trees": [
+      {
+        "lessPath" : "/DOMAIN/Bundle/BUNDLENAME/Resources/public/less"
+      }
+    ]
+  },
+  "dist": {
+    "mainPath" : "sources/sf2/src",
+    "trees": [
+      {
+        "cssPath" : "/DOMAIN/Bundle/BUNDLENAME/Resources/public/css"
+      }
+    ]
+  }
+}
