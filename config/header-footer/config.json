@@ -1,5 +1,5 @@
 {
-  "bowerDir": "library",
+  "bowerDir": "bower",
   "sources": {
     "mainPath" : "sources/header-footer",
     "lessPath" : "/less",

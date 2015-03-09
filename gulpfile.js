@@ -24,53 +24,18 @@ var gulp      = require('gulp'),
  *************************************************************
  * Project setup
  */
-var config;
-var project;
+// Get kickstarter library and library configuration
 var kickstarter = require('./kickstarter.json');
-function getSrc(tree, type, extension) {
-  var trees = tree.trees;
-  if (extension === undefined) {
-    extension = '';
-  }
-
-  // Multiple sources
-  if (_.isArray(trees)) {
-    var src = [];
-    _.each(trees, function (item) {
-      src.push(tree.mainPath + _.result(item, type) + extension);
-    });
-
-    return src;
-  }
-
-  return [tree.mainPath + tree[type] + extension];
-}
-function getFolders() {
-  return fs.readdirSync('./config')
-    .filter(function (file) {
-      return fs.statSync(path.join('./config', file)).isDirectory();
-    });
-}
-function getConfig() {
-  try {
-    project = require(kickstarter.configuration.project);
-    if (project.config) {
-      config = require('./config/' + project.config + '/config.json');
-    }
-  } catch (exception) {
-    // Display that the configuration is missing only if we run another tasks than configuration one.
-    if (_.last(this.process.argv) !== 'configuration') {
-      console.warn('The project is not configured. Please run gulp configuration.');
-    }
-  }
-}
-
-// Initialize projects configuration
+var lib         = require('./lib/kickstarter.js');
+// Initialize the library
+lib.init();
+// Retrieve project configuration and specifications
+var config      = lib.getConfiguration();
+var project     = lib.getProject();
+// Customize library with project specification
 var configFolders = {
-  choices: getFolders()
+  choices: lib.getFolders
 };
-// Retrieve current project configuration
-getConfig();
 /*************************************************************
  *************************************************************/
 
@@ -83,7 +48,8 @@ gulp.task('kick', ['configuration'], function () {
 });
 gulp.task('start', ['watch']);
 
-gulp.task('help', taskListing);
+// List all available commands
+gulp.task('help', taskListing.withFilters(null, 'gulpfile'));
 gulp.task('default', ['watch']);
 gulp.task('test', ['test-lint', 'test-validation']);
 gulp.task('compile', function (callback) {
@@ -101,8 +67,8 @@ gulp.task('configuration', function (callback) {
     // Configuration setup if :
     // -  the configuration is missing,
     // -  the required parameters are missing
-    // -  the script is launched with the force parameter 
-    if (!appConfigExist || !loadConfig.config || !loadConfig.services || _.includes(process.argv, "--force")) {
+    // -  the script is launched with the force parameter *
+    if (!appConfigExist || !loadConfig.config || !loadConfig.services || _.includes(this.process.argv, "--force")) {
       gulp.src('.')
         .pipe($.prompt.prompt(
           _.merge(kickstarter.prompt.projects, configFolders),
@@ -147,7 +113,7 @@ gulp.task('configuration', function (callback) {
                 }
               ))
               .pipe(gulp.dest('./config'));
-            getConfig();
+            lib.getConfig();
             callback();
           }
         ));
@@ -221,7 +187,7 @@ gulp.task('dist-external', function (callback) {
 /************* Lint test **********************/
 gulp.task('test-lint', ['test-lint-css', 'test-lint-js']);
 gulp.task('test-lint-css', function () {
-  return gulp.src(getSrc(config.dist, 'cssPath', '/*.css'))
+  return gulp.src(lib.getSrc(config.dist, 'cssPath', '/*.css'))
     .pipe($.plumber())
     .pipe(browserSync.reload({stream: true, once: false}))
     .pipe($.csslint())
@@ -229,7 +195,7 @@ gulp.task('test-lint-css', function () {
     .pipe($.csslint.reporter());
 });
 gulp.task('test-lint-js', function () {
-  return gulp.src(getSrc(config.sources, 'jsPath', '/*.js'))
+  return gulp.src(lib.getSrc(config.sources, 'jsPath', '/*.js'))
     .pipe($.plumber())
     .pipe(browserSync.reload({stream: true, once: false}))
     .pipe($.jshint())
@@ -244,7 +210,7 @@ gulp.task('test-lint-js', function () {
 /************* Validation *********************/
 gulp.task('test-validation', ['test-validation-html']);
 gulp.task('test-validation-html', function () {
-  return gulp.src(_.merge(getSrc(config.dist, 'htmlPath', '/*.html'), getSrc(config.sources, 'htmlPath', '/*.html')))
+  return gulp.src(_.merge(lib.getSrc(config.dist, 'htmlPath', '/*.html'), lib.getSrc(config.sources, 'htmlPath', '/*.html')))
     .pipe($.plumber())
     .pipe($.w3cjs())
     .pipe($.notify({message: "HTML Validator: <%= file.relative %>"}));
@@ -256,8 +222,8 @@ gulp.task('test-validation-html', function () {
 /************* Compilation ********************/
 gulp.task('compile-less', function (callback) {
   if (_.includes(project.services, "less")) {
-    var sources = getSrc(config.sources, 'lessPath', '/*.less');
-    var ext     = getSrc(config.dist, 'cssPath');
+    var sources = lib.getSrc(config.sources, 'lessPath', '/*.less');
+    var ext     = lib.getSrc(config.dist, 'cssPath');
 
     // Check configuration
     if (_.size(sources) !== _.size(ext)) {
@@ -290,8 +256,8 @@ gulp.task('compile-less', function (callback) {
 });
 gulp.task('compile-sass', function (callback) {
   if (_.includes(project.services, "sass")) {
-    var sources = getSrc(config.sources, 'sassPath', '/*.scss');
-    var ext     = getSrc(config.dist, 'cssPath');
+    var sources = lib.getSrc(config.sources, 'sassPath', '/*.scss');
+    var ext     = lib.getSrc(config.dist, 'cssPath');
 
     // Check configuration
     if (_.size(sources) !== _.size(ext)) {
@@ -337,12 +303,12 @@ gulp.task('compile-js', ['test-lint-js'], function () {
 });
 gulp.task('compile-twig', function (callback) {
   if (_.includes(project.services, "twig")) {
-    gulp.src(getSrc(config.sources, 'twigPath', '/*.twig'))
+    gulp.src(lib.getSrc(config.sources, 'twigPath', '/*.twig'))
       .pipe($.data(function (file) {
         return require('./' + config.sources.mainPath + '/content/' + path.basename(file.path) + '.json');
       }))
       .pipe($.twig())
-      .pipe(gulp.dest(getSrc(config.dist, 'htmlPath')));
+      .pipe(gulp.dest(lib.getSrc(config.dist, 'htmlPath')));
   }
 
   callback();
@@ -354,8 +320,8 @@ gulp.task('compile-twig', function (callback) {
 /************* Optimization ********************/
 gulp.task('optimize-images', function (callback) {
   if (_.includes(project.services, "images")) {
-    var sources = getSrc(config.sources, 'imgPath', '/*.*');
-    var ext     = getSrc(config.dist, 'imgPath');
+    var sources = lib.getSrc(config.sources, 'imgPath', '/*.*');
+    var ext     = lib.getSrc(config.dist, 'imgPath');
 
     // Check configuration
     if (_.size(sources) !== _.size(ext)) {
@@ -384,7 +350,7 @@ gulp.task('optimize-images', function (callback) {
 /**********************************************/
 /**********************************************/
 
-gulp.task('watch', function () {
+gulp.task('watch', function (callback) {
   if (_.includes(project.services, "webserver")) {
     // Create a web server
     gulp.src(config.dist.mainPath + config.dist.htmlPath)
@@ -401,23 +367,28 @@ gulp.task('watch', function () {
 
   // Watch files modification 
   if (_.includes(project.services, "less")) {
-    gulp.watch(getSrc(config.sources, 'lessPath', '/*.less'), ['compile-less']);
+    gulp.watch(lib.getSrc(config.sources, 'lessPath', '/*.less'), ['compile-less']);
   }
   if (_.includes(project.services, "sass")) {
-    gulp.watch(getSrc(config.sources, 'sassPath', '/*.scss'), ['compile-sass']);
+    gulp.watch(lib.getSrc(config.sources, 'sassPath', '/*.scss'), ['compile-sass']);
   }
 
   // @TODO : Multiple sources/dist trees
   gulp.watch(config.sources.mainPath + config.sources.jsPath + '/*.js', ['test-lint-js', 'compile-js']);
 
   if (_.includes(project.services, "images")) {
-    gulp.watch(getSrc(config.sources, 'impPath', '/*.*'), ['optimize-images']);
+    gulp.watch(lib.getSrc(config.sources, 'impPath', '/*.*'), ['optimize-images']);
   }
   if (_.includes(project.services, "twig")) {
-    gulp.watch(getSrc(config.sources, 'twigPath', '/*.twig'), ['compile-twig']);
-    gulp.watch(getSrc(config.dist, 'htmlPath', '/*.html'), ['test-validation-html']);
+    gulp.watch(lib.getSrc(config.sources, 'twigPath', '/*.twig'), ['compile-twig']);
+    gulp.watch(lib.getSrc(config.dist, 'htmlPath', '/*.html'), ['test-validation-html']);
   }
   if (_.includes(project.services, "html")) {
-    gulp.watch(getSrc(config.sources, 'htmlPath', '/*.html'), ['test-validation-html']);
+    gulp.watch(lib.getSrc(config.sources, 'htmlPath', '/*.html'), ['test-validation-html']);
   }
+
+  callback();
 });
+
+// Launcher : execute main gulpfile task, sub gulpfile tasks after
+$.hub(['gulpfile.js', './config/' + project.config + '/gulpfile.js']);
