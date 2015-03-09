@@ -2,6 +2,9 @@
   "bowerDir": "bower",
   "sources": {
     "mainPath" : "sources/plain",
+    "faPath"   : "/fontawesome/fonts",
+    "iconPath" : "/fonts",
+    "jsPath"   : "/scripts",
     "trees": [
       {
         "sassPath" : "/sass",
@@ -16,6 +19,8 @@
   },
   "dist": {
     "mainPath" : "public/plain",
+    "iconPath" : "/fonts",
+    "jsPath"   : "/js",
     "trees": [
       {
         "cssPath"  : "/css",
