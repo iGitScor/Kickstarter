@@ -360,7 +360,7 @@ gulp.task('optimize-images', function (callback) {
 gulp.task('watch', function (callback) {
   if (_.includes(project.services, "webserver")) {
     // Create a web server
-    gulp.src(config.dist.mainPath + config.dist.htmlPath)
+    gulp.src(config.dist.mainPath)
       .pipe($.webserver({
         host: "0.0.0.0",
         port: 1234,
@@ -398,4 +398,6 @@ gulp.task('watch', function (callback) {
 });
 
 // Launcher : execute main gulpfile task, sub gulpfile tasks after
-$.hub(['gulpfile.js', './config/' + project.config + '/gulpfile.js']);
+if (project) {
+  $.hub(['gulpfile.js', './config/' + project.config + '/gulpfile.js']);
+}
