@@ -12,9 +12,10 @@ Nav
 Footer
 
 * Custom blocks *
-Feature Block
-Testimonial Block
-Contact Block  
+Main title
+Text Intro 
+Conseil Marie
+Precautions
 
 * Miscellaneous *
 Utilities
@@ -32,16 +33,24 @@ Buttons
 */
 
 #site-wrapper {
-  /* background: url('/img/super-bg.jpg') top no-repeat; SWITCH add a uber background to the page */
+  background: url('/img/bg-body.jpg') right repeat;
+  /* SWITCH add a uber background to the page */
 }
 .content-wrapper {
+  
   > .container {
     padding-bottom: 40px;
-    background: #FFF;
   }
+}
+.bg-degrad-wrapper {
+  padding-bottom: 55px;
+   background: url('/img/bg-main-container.png') center repeat-y;
 }
 /* HEADER */
 
+#header {
+  background-color: #FFF;
+}
 .header-top {
   color: #FFF;
   font-family: @font-family-brand;
@@ -53,8 +62,9 @@ Buttons
   }
 }
 .header-mid {
-  padding: @padding-large-vertical 0;
+  padding: @padding-large-vertical;
   .delivery-point {
+    padding-top: @padding-large-vertical;
     float: right;
     .picto {
       display: inline-block;
@@ -72,7 +82,6 @@ Buttons
 /* FOOTER */
 
 #footer {
-  background: #FFF;
   > * {
     padding-top: 40px;
     padding-bottom: 40px;
@@ -82,8 +91,60 @@ Buttons
 /*** CUSTOM BLOCKS
    ====================================================================== */
 
-
-
+.main-title {
+  font-family: @font-family-special;
+  color: #6a8e0a;
+  font-size: ceil((@font-size-base * 5));
+}
+.text-intro-wrapper {
+  background-color: #FFF;
+  padding: @padding-base-horizontal;
+  .text-intro {
+    padding: 0 50px;
+    font-family: @font-family-brand;
+    font-size: @font-size-large;
+    text-align: justify;
+    .strong {
+      font-family: 'museo_sans700';
+      color: @brand-primary;
+      font-size: ceil((@font-size-base * 1.57));
+    }
+  }
+}
+.conseil-marie {
+  .text {
+    .author {
+      text-align: right;
+    }
+    .title {
+      color: @brand-primary;
+      font-size: floor((@font-size-base * 2));
+      font-family: @font-family-brand-bold;
+      text-transform: uppercase;
+      text-align: left;
+    }
+    .desc {
+      font-size: @font-size-large;
+    }
+  }
+}
+.precautions {
+  > div {
+    padding: 10px 20px 20px;
+    text-align: center;
+    color: #FFF;
+    background-color: @brand-primary;
+  } 
+  .title {
+    font-family: @font-family-special;
+    font-size: floor((@font-size-base * 3.143));
+  }
+  .desc {    
+    text-align: justify;
+    font-family: @font-family-brand;
+    font-size: @font-size-large;
+  }
+}
 /*** MISCELLANEOUS
    ====================================================================== */
 /* UTILITIES */

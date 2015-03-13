@@ -1,3 +1,83 @@
-{% extends "components/layout.twig" %}
+{% extends "components/layout.twig" %} {% block content %}
+<section class="container">
+  <div class="row">
+    <h1 class="main-title text-center">12 huiles vraiment essentielles</h1>
+  </div>
+  <!-- /row -->
+</section>
+<!-- /container -->
 
-{% block content %}Index{% endblock %}
+<section class="text-intro-wrapper">
+  <div class="container">
+    <div class="col-md-12 text-intro">
+      Les huiles essentielles sont de plus en plus utilisés pour se soigner naturellement, mais aussi pour se sentir mieux ou même embellir la peau. Il existe tellement d’huiles essentielles qu’il est parfois difficile de s’y retrouver.
+      <br/>
+      <strong class="strong">Découvrez les 12 huiles essentielles que nous vous recommandons d’avoir chez vous ! </strong>
+    </div>
+    <!-- /text-intro -->
+  </div>
+  <!-- /container -->
+</section>
+<!-- /text-intro-wrapper -->
+<div class="bg-degrad-wrapper">
+  <section class="container product-list">
+
+    {% for item in products %} {% if loop.index0 % 3 == 0 %}
+    <div class="row">
+      {% endif %}
+
+      <div class="col-xs-12 col-sm-4 item index{{ loop.index0 }}">
+        <p class="illus">
+          <a href="{{ item.externalLink }}" title=""><img src="{{ item.mediaUrl }}" alt="{{ item.mediaAlt }}" class="img-responsive" />
+          </a>
+        </p>
+        <p class="title">{{ item.title }}</p>
+        <div class="desc">
+          {{ item.description|join }}
+        </div>
+        <div class="action text-center">
+          <a href="{{ item.externalLink }}" title="" class="btn btn-primary btn-lg text-uppercase"><i class="fa fa-custom-butterfly"></i> J'achète > ></a>
+        </div>
+      </div>
+      <!-- /item -->
+
+
+      {% if loop.index0 % 3 == 2 or loop.last %}
+    </div>
+    <!-- /row -->
+    {% endif %} {% endfor %}
+
+  </section>
+  <!-- /product-list -->
+
+  <section class="container conseil-marie">
+    <div class="col-xs-12 col-sm-6 text">
+      <div class="row">
+        <div class="col-sm-6 author"><img src="/img/picto-conseil-marie.png" alt="Photo marie" />
+        </div>
+        <div class="col-sm-6 title">Le conseil de Marie</div>
+      </div>
+
+      <div class="desc col-sm-offset-4">
+        Marie a sélectionné pour vous 8 huiles essentielles et vous explique les précautions à prendre lorsque vous les utilisez.
+      </div>
+    </div>
+    <div class="col-xs-12 col-sm-6 illus">
+      <a href="" title=""><img src="/img/illus-video-conseil-marie.jpg" alt="Video conseil de marie" class="img-responsive" />
+      </a>
+    </div>
+  </section>
+  <!-- /conseil-marie -->
+</div>
+<!-- /bg-degrad-wrapper -->
+<section class="container precautions">
+  <div>
+    <p class="title">Attention</p>
+    <div class="desc">
+      Les huiles essentielles ne s’utilisent pas de manière anodine, veuillez respecter les précautions d’emploi indiqués sur les flacons. Demandez conseil à votre médecin ou pharmacien avant utilisation. Elles sont particulièrement déconseillées aux femmes enceintes et enfants de moins de 6 ans.
+    </div>
+  </div>
+</section>
+<!-- /precautions -->
+
+{% endblock %}
