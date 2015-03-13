@@ -161,7 +161,7 @@ gulp.task('dist-icons', function (callback) {
     }
     if (config.sources.iconPath !== undefined) {
       gulp.src([
-        config.bowerDir + config.sources.iconPath + '/**.*'
+        config.sources.mainPath + config.sources.iconPath + '/**/*.*'
       ])
         .pipe(gulp.dest(config.dist.mainPath + config.dist.iconPath));
     }
@@ -297,8 +297,9 @@ gulp.task('compile-sass', function (callback) {
 });
 gulp.task('compile-js', ['test-lint-js'], function () {
   return gulp.src([
-    config.sources.mainPath + config.sources.jsPath + '/*.js',
-    config.sources.mainPath + config.sources.jsPath + '/external/*.js'
+    config.sources.mainPath + config.sources.jsPath + '/external/jquery.js',
+    config.sources.mainPath + config.sources.jsPath + '/external/bootstrap.js',
+    config.sources.mainPath + config.sources.jsPath + '/*.js'   
   ])
     .pipe($.plumber())
     .pipe($.sourcemaps.init())
@@ -387,7 +388,7 @@ gulp.task('watch', function (callback) {
     gulp.watch(lib.getSrc(config.sources, 'impPath', '/*.*'), ['optimize-images']);
   }
   if (_.includes(project.services, "twig")) {
-    gulp.watch(lib.getSrc(config.sources, 'twigPath', '/*.twig'), ['compile-twig']);
+    gulp.watch(lib.getSrc(config.sources, 'twigPath', '/**/*.twig'), ['compile-twig']);
     gulp.watch(lib.getSrc(config.dist, 'htmlPath', '/*.html'), ['test-validation-html']);
   }
   if (_.includes(project.services, "html")) {
