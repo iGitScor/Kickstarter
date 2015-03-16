@@ -37,14 +37,13 @@ Buttons
   /* SWITCH add a uber background to the page */
 }
 .content-wrapper {
-  
   > .container {
     padding-bottom: 40px;
   }
 }
 .bg-degrad-wrapper {
   padding-bottom: 55px;
-   background: url('/img/bg-main-container.png') center repeat-y;
+  background: url('/img/bg-main-container.png') center repeat-y;
 }
 /* HEADER */
 
@@ -63,9 +62,12 @@ Buttons
 }
 .header-mid {
   padding: @padding-large-vertical;
+  .logo {
+    text-align: center;
+  }
   .delivery-point {
     padding-top: @padding-large-vertical;
-    float: right;
+    text-align: center;
     .picto {
       display: inline-block;
       margin-right: 5px;
@@ -76,6 +78,9 @@ Buttons
       display: inline-block;
       line-height: 1.1;
       vertical-align: middle;
+    }
+    @media (min-width: @screen-sm-min) {
+      float: right;
     }
   }
 }
@@ -94,27 +99,36 @@ Buttons
 .main-title {
   font-family: @font-family-special;
   color: #6a8e0a;
-  font-size: ceil((@font-size-base * 5));
+  font-size: ceil((@font-size-base * 4));
+  @media (min-width: @screen-md-min) {
+    font-size: ceil((@font-size-base * 5));
+  }
 }
 .text-intro-wrapper {
   background-color: #FFF;
   padding: @padding-base-horizontal;
   .text-intro {
-    padding: 0 50px;
     font-family: @font-family-brand;
     font-size: @font-size-large;
     text-align: justify;
     .strong {
+      display: block;
+      margin-bottom: 8px;
       font-family: 'museo_sans700';
       color: @brand-primary;
-      font-size: ceil((@font-size-base * 1.57));
+      font-size: ceil((@font-size-base * 1.4));
+    }
+  }
+  @media (min-width: @screen-sm-min) {
+    .text-intro {
+      padding: 0 50px;
     }
   }
 }
 .conseil-marie {
   .text {
     .author {
-      text-align: right;
+      text-align: center;
     }
     .title {
       color: @brand-primary;
@@ -127,6 +141,31 @@ Buttons
       font-size: @font-size-large;
     }
   }
+  .illus {
+    margin-top: 10px;
+    position: relative;
+    padding-bottom: 59.25%;
+    padding-top: 25px;
+    height: 0;
+    iframe {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+    }
+  }
+  @media (min-width: @screen-sm-min) {
+    .text {
+      .author {
+        text-align: right;
+      }
+    }
+    .illus {
+      margin-top: 0px;
+      padding-bottom: 24.25%;
+    }
+  }
 }
 .precautions {
   > div {
@@ -134,12 +173,12 @@ Buttons
     text-align: center;
     color: #FFF;
     background-color: @brand-primary;
-  } 
+  }
   .title {
     font-family: @font-family-special;
     font-size: floor((@font-size-base * 3.143));
   }
-  .desc {    
+  .desc {
     text-align: justify;
     font-family: @font-family-brand;
     font-size: @font-size-large;
@@ -162,6 +201,12 @@ Buttons
   > * {
     display: table-cell;
     vertical-align: middle;
+  }
+}
+.hidden-link {
+  text-decoration: none;
+  &:hover {
+    text-decoration: none;
   }
 }
 /* BUTTON */
