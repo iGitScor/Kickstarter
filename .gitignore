@@ -5,3 +5,5 @@
 /sources/**/scripts/external
 npm-debug.log
 .DS_Store
+
+/vendor/
