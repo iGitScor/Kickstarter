@@ -1,0 +1,34 @@
+{
+  "bowerDir": "bower",
+  "sources": {
+    "mainPath" : "sources/ff2",
+    "faPath"   : "/fontawesome/fonts",
+    "iconPath" : "/fonts",
+    "jsPath"   : "/scripts",
+    "trees": [
+      {
+        "sassPath" : "/sass",
+        "lessPath" : "/less",
+        "jsPath"   : "/scripts",
+        "iconPath" : "/fonts",
+        "faPath"   : "/fontawesome/fonts",
+        "imgPath"  : "/images",
+        "twigPath" : "/views"
+      }
+    ]
+  },
+  "dist": {
+    "mainPath" : "public/ff2",
+    "iconPath" : "/fonts",
+    "jsPath"   : "/js",
+    "trees": [
+      {
+        "cssPath"  : "/css",
+        "jsPath"   : "/js",
+        "iconPath" : "/fonts",
+        "imgPath"  : "/img",
+        "htmlPath" : ""
+      }
+    ]
+  }
+}

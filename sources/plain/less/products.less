@@ -16,35 +16,81 @@ Item
     color: #0E3453;
     font-family: @font-family-brand;
   }
+  .row {
+    margin: 0px;
+  }
   /* ITEM */
   
   .item {
-    margin: 30px 0;
+    margin: 20px 0;
+    padding: 0px;
+    background: url('/img/plank.png') center 264px no-repeat;
+    &.index0 {
+      background-position: center 240px;
+    }
+    &.index2 {
+      background-position: center 235px;
+    }
+    &.index5 {
+      background-position: center 250px;
+    }
+    &.index7 {
+      background-position: center 250px;
+    }
+    &.index10 {
+      background-position: center 274px;
+    }
     .illus {
+      width: 100%;
+      height: 313px;
       text-align: center;
-      background: url('http://conseils-demaquillant.1001pharmacies.com/img/bg-splash02.png') center no-repeat;
-      background-size: contain;
+      vertical-align: bottom;
     }
-    .illus img {} 
-    .txt {}
-    .title {
-      margin-top: 0px;
-      color: #0E3453;
-      font-size: @font-size-h3;
-      font-family: @font-family-brand;
-    }
-    .desc {}
-    .sub {
-      padding-top: 20px;
-    }
-    .price {
+    .illus img {
       display: inline-block;
-      padding: 5px 8px;
-      text-align: center;
-      font-size: @font-size-base;
-      color: #FFF;
-      background-color: #43AABA;
     }
-    .action {}
+    .title {
+      margin-top: 20px;
+      color: #6a8e0a;
+      font-size: floor((@font-size-base * 2.357));
+      font-family: @font-family-special;
+      text-align: center;
+    }
+    .desc {
+      margin-bottom: 10px;
+      padding: 0px 10px;
+      font-size: 13px;
+      line-height: 120%;
+      ul {
+        padding: 0 0 0 15px;
+        margin: 0px;
+      }
+    }
+  }
+  @media (max-width: @screen-xs-max) {
+    .item {
+      .illus {
+        height: auto!important;
+        padding-bottom: 10px;
+      }
+    }
+  }
+  @media (min-width: @screen-sm-min) {
+    .row {
+      background: url('/img/plank.png') center 292px no-repeat;
+    }
+    .item {
+      background: none;
+      .title {
+        font-size: floor((@font-size-base * 3.143));
+      }
+      .illus {
+        display: table-cell;
+        max-width: 302px;
+      }
+      .desc {
+        min-height: 255px;
+      }
+    }
   }
 }

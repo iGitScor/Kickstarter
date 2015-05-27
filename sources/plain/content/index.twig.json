@@ -1,9 +1,226 @@
 {
-  "title": "Bootstrap 1001 Kickstarter",
-  "benefits": [
-    "Fast",
-    "Flexible",
-    "Secure"
-  ],
-  "pony": "Rainbow"
+  "titleHead": "Focus Huiles Essentielles 1001Pharmacies",
+  "products": [
+    {
+      "mediaUrl": "/img/illus-product01.png",
+      "mediaAlt": "Illustration produit Ravintsara",
+      "title": "Ravintsara",
+      "description": [
+        "<strong class='strong'>L'huile essentielle de l'hiver, elle aide à combattre les épidémies grippales et autres agressions virales.</strong><br/>",
+        "Elle est également recommandée pour : ",
+        "<ul>",
+        "<li>renforcer le système immunitaire</li>",
+        "<li>prévenir et/ou soigner les infections virales (grippe, herpès) et respiratoires (rhumes, bronchites)</li>",
+        "<li>favoriser l'expectoration lors d'une toux grasse</li>",
+        "<li>diminuer la fatigue nerveuse et physique, le stress. Favoriser un bon sommeil. </li>",
+        "<li>faire disparaître un bouton de fièvre, une verrue </li>",
+        "</ul>"
+      ],
+      "externalLink": "http://www.1001pharmacies.com/naturactive-huile-essentielle-bio-ravintsara-5-ml-p13676" 
+    },  
+    {
+      "mediaUrl": "/img/illus-product02.png",
+      "mediaAlt": "Illustration produit Citron",
+      "title": "Citron",
+      "description": [
+        "<strong class='strong'>Très bon tonifiant veineux, le citron permet également de soulager la digestion difficile.</strong><br/>",
+        "Egalement utilisée pour : ",
+        "<ul>",
+        "<li>favoriser le confort digestif</li>",
+        "<li>tonifier les peaux grasses</li>",
+        "<li>soulager le mal des transport</li>",
+        "<li>favoriser la disparition des pellicules </li>",
+        "<li>revigorer la chevelure, réveiller l’éclat des cheveux ternes</li>",
+        "<li>atténuer la cellulite et les vergetures</li>",
+        "<li>absorber les odeurs désagréables</li>",
+        "<li>prévenir des contagions hivernales</li>",
+        "<li>tonifier et décongestionner </li>",
+        "</ul>"
+      ],
+      "externalLink": "http://www.1001pharmacies.com/comptoir-aroma-citron-huile-essentielle-bio-10ml-p14398" 
+    },  
+    {
+      "mediaUrl": "/img/illus-product03.png",
+      "mediaAlt": "Illustration produit Menthe Poivrée",
+      "title": "Menthe Poivrée",
+      "description": [
+        "<strong class='strong'>Ses nombreuses propriétés en font une huile incontournable, notamment pour son effet tonifiant et stimulant général.</strong><br/>",
+        "A utiliser pour : ",
+        "<ul>",
+        "<li>vous aider à digérer</li>",
+        "<li>apaiser les brûlures et les coups de soleil</li>",
+        "<li>soulager les maux de tête, la sinusite</li>",
+        "<li>soulager la sensation de jambes lourdes</li>",
+        "<li>rafraîchir l’haleine et soulager les petits maux de bouche</li>",
+        "<li>aider à vous concentrer et palier à la fatigue passagère (nerveuse, intellectuelle ou sexuelle).</li>",
+        "</ul>"
+      ],
+      "externalLink": "http://www.1001pharmacies.com/comptoir-aroma-menthe-poivree-huile-essentielle-bio-10ml-p14691" 
+    },
+    {
+      "mediaUrl": "/img/illus-product04.png",
+      "mediaAlt": "Illustration produit Lavande Vraie",
+      "title": "Lavande Vraie",
+      "description": [
+        "<strong class='strong'>L’huile essentielle la plus utilisée et la plus efficace. Antispasmodique mais aussi apaisante. </strong><br/>",
+        "A utiliser pour :",
+        "<ul>",
+        "<li>soulager la tendance à la déprime, les angoisses, le stress, les insomnies.</li>",
+        "<li>soigner la constipation passagère, mais aussi les spasmes digestifs</li>",
+        "<li>éloigner les moustiques, mites et poux</li>",
+        "<li>soulager les piqûres d’insectes, les petites plaies non sur-infectées, les démangeaisons, etc.</li>",
+        "<li>apaiser les brûlures légères, les coups de soleil. </li>",
+        "<li>rééquilibrer les cheveux, les renforcer.... </li>",
+        "<li>purifier le teint et nettoyer les peaux grasses</li>",
+        "<li>prévenir la formation de boutons</li>",
+        "<li>soulager les maux de bouche et de gorge</li>",
+        "<li>réguler la transpiration excessive</li>",
+        "<li>soulager les crampes et faiblesses articulaires.</li>",
+        "</ul>"
+      ],
+      "externalLink": "http://www.1001pharmacies.com/pranarom-huile-essentielle-lavande-vraie-10-ml-p14033" 
+    }, 
+    {
+      "mediaUrl": "/img/illus-product05.png",
+      "mediaAlt": "Illustration produit Tea Tree",
+      "title": "Tea Tree",
+      "description": [
+        "<strong class='strong'>De plus en plus présente en cosmétique, cette huile est un antibactérien puissant qui s’utilise contre beaucoup d’infections.</strong><br/>",
+        "A utiliser pour :",
+        "<ul>",
+        "<li>prévenir les infections hivernales </li>",
+        "<li>lutter contre la fatigue générale, mais aussi contre la déprime, l’énervement et l’anxiété</li>",
+        "<li>soulager les infections intestinales, urinaires et génitales</li>",
+        "<li>soulager les coups de soleil, brûlures superficielles et piqûres d’insectes</li>",
+        "<li>soigner les petites plaies non sur-infectées, les ampoules</li>",
+        "<li>assainir l’air</li>",
+        "<li>lutter contre les problèmes de peaux (herpés, acné, mycoses…) </li>",        
+        "</ul>"
+      ],
+      "externalLink": "http://www.1001pharmacies.com/la-drome-provencale-huiles-essentielles-tea-tree-10ml-p2106" 
+    },
+    {
+      "mediaUrl": "/img/illus-product06.png",
+      "mediaAlt": "Illustration produit Géranium Bourbon",
+      "title": "Géranium Bourbon",
+      "description": [
+        "<strong class='strong'>Tonique et stimulante, cette huile est aussi un très bon antiseptique intestinale. </strong><br/>",
+        "Elle possède de nombreuses propriétés :",
+        "<ul>",
+        "<li>diminue la fatigue nerveuse passagère, le surmenage et le stress. Permet de se relaxer. </li>",
+        "<li>favorise la diminution du diabète </li>",
+        "<li>apaise les boutons de fièvre</li>",
+        "<li>favorise la régénération cutanée : brûlures, cicatrices, vergetures, etc.</li>",
+        "<li>régule les peaux grasses à tendance acnéique</li>",
+        "<li>elle contribue également à éloigner les poux, mais aussi les moustiques.</li>",
+        "<li>soigne aussi la couperose, les mycose cutanées, les ongles abîmés, les dermatoses..</li>",        
+        "</ul>"
+      ],
+      "externalLink": "http://www.1001pharmacies.com/naturactive-huile-essentielle-bio-geranium-bourbon-5-ml-p13586" 
+    },
+    {
+      "mediaUrl": "/img/illus-product07.png",
+      "mediaAlt": "Illustration produit Petit Grain Bigarade",
+      "title": "Petit Grain Bigarade",
+      "description": [
+        "<strong class='strong'>Avec son agréable parfum, elle est surtout utiliser en diffusion pour ses propriétés relaxante.</strong><br/>",
+        "Vous pouvez l’utiliser en cas de :",
+        "<ul>",
+        "<li>troubles de l’humeur, du sommeil ou même nerveux</li>",
+        "<li>peaux grasses à tendance acnéique, puisqu’elle régule le sébum.</li>",
+        "<li>soigne les dartres et autres problèmes cutanés  </li>",
+        "<li>problème de toux</li>",
+        "<li>d’arthrite, tendinite ou rhumatisme</li>",             
+        "</ul>"
+      ],
+      "externalLink": "http://www.1001pharmacies.com/arkopharma-petit-grain-bigarade-citrus-aurantium-ssp-amara-p68" 
+    },
+    {
+      "mediaUrl": "/img/illus-product08.png",
+      "mediaAlt": "Illustration produit Sauge Sclarée",
+      "title": "Sauge Sclarée",
+      "description": [
+        "<strong class='strong'>Cette huile possède des propriétés régulatrices et œstrogène-like.</strong><br/>",
+        "Elle permet de :",
+        "<ul>",
+        "<li>réguler l'équilibre hormonal féminin : règles, bouffées de chaleur, préménopause, migraines cataméniales… </li>",
+        "<li>réguler le cuir chevelu (pellicule, chute de cheveux, cheveux cassants et secs, cheveux gras…)</li>",
+        "<li>réguler la transpiration excessive</li>",
+        "<li>réguler la peau grasse</li>",
+        "<li>réguler les troubles circulatoires (varices, hémorroïdes, œdèmes…) </li>",             
+        "</ul>"
+      ],
+      "externalLink": "http://www.1001pharmacies.com/phytosun-aroms-huiles-essentielles-sauge-sclaree-5-ml-p5094" 
+    },
+    {
+      "mediaUrl": "/img/illus-product09.png",
+      "mediaAlt": "Illustration produit Thym",
+      "title": "Thym",
+      "description": [
+        "<strong class='strong'>Le thym est pratique en cas d’infections grâce à ses propriétés antibactériennes et antivirales.</strong><br/>",
+        "A utiliser pour :",
+        "<ul>",
+        "<li>soigner les infections respiratoires (rhume, bronchite, sinusite, grippe)</li>",
+        "<li>soigner également les infections urinaires ou intestinales</li>",
+        "<li>diminuer la fatigue mentale, physique et sexuelle</li>",
+        "<li>équilibrer la peau grasse à tendance acnéique</li>",
+        "<li>revitaliser le cuir chevelu : il permet de ralentir la chute des cheveux</li>",             
+        "</ul>"
+      ],
+      "externalLink": "http://www.1001pharmacies.com/naturactive-huile-essentielle-bio-thym-vulgaire-a-thymol-5-ml-p13673" 
+    },
+    {
+      "mediaUrl": "/img/illus-product10.png",
+      "mediaAlt": "Illustration produit Camomille noble",
+      "title": "Camomille noble",
+      "description": [
+        "<strong class='strong'>La camomille est particulièrement adaptée pour apaiser les peaux réactives et réduire l’anxiété.</strong><br/>",
+        "Elle permet donc de :",
+        "<ul>",
+        "<li>réduire les démangeaisons cutanées, notamment les prurits d’origines allergiques, mais aussi les piqûres d’insectes</li>",
+        "<li>réduire les démangeaisons du cuir chevelu</li>",
+        "<li>réduire l’anxiété, particulièrement conseillé en cas de choc nerveux. Peut également réduire l’appréhension avant une épreuve ou une situation difficile</li>",
+        "<li>soulager une rage de dents</li>",
+        "<li>soulager des maux de tête.</li>",             
+        "</ul>"
+      ],
+      "externalLink": "http://www.1001pharmacies.com/pranarom-huile-essentielle-camomille-noble-5-ml-p13989" 
+    },
+    {
+      "mediaUrl": "/img/illus-product11.png",
+      "mediaAlt": "Illustration produit Cyprés",
+      "title": "Cyprés",
+      "description": [
+        "<strong class='strong'>Cette huile est conseillée si vous souffrez de troubles veineux et lympathiques.</strong><br/>",
+        "A utiliser en cas de : ",
+        "<ul>",
+        "<li>trouble veineux (jambes lourdes, couperose, varices, hémorroïdes, etc.)</li>",
+        "<li>peau grasse à tendance acnéique</li>",
+        "<li>problème de toux. Utile également en cas de voix cassée, proche de l’aphonie. </li>",
+        "<li>règle douloureuse, pré-ménopause </li>",
+        "<li>pour raffermir et régénérer la peau. Pensez-y également pour atténuer la cellulite. </li>",             
+        "</ul>"
+      ],
+      "externalLink": "http://www.1001pharmacies.com/la-drome-provencale-huiles-essentielles-cypres-10ml-p2058" 
+    },
+    {
+      "mediaUrl": "/img/illus-product12.png",
+      "mediaAlt": "Illustration produit Niaouli",
+      "title": "Niaouli",
+      "description": [
+        "<strong class='strong'>Polyvalente, le niaouli est surtout utilisé en cas d’infections respiratoires.</strong><br/>",
+        "Elle possède de nombreuses propriétés : ",
+        "<ul>",
+        "<li>anti-infectieuse, elle prévient et soigne les états grippaux, rhumes, toux, sinusites, maux de gorge, etc.</li>",
+        "<li>soigne les cystites et problèmes urinaires</li>",
+        "<li>soulage les otites</li>",
+        "<li>favorise la disparition des boutons de fièvre</li>",
+        "<li>soulage l’asthme</li>", 
+        "<li>soulage les problèmes de rétention hydrolipidique et les soucis de circulation (jambes lourdes, hémorroïdes, varices…)</li>",             
+        "</ul>"
+      ],
+      "externalLink": "http://www.1001pharmacies.com/arkopharma-niaouli-melaleuca-viridiflora-p72" 
+    }    
+    
+  ]
 }
