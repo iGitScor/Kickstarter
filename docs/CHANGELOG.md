@@ -1,9 +1,19 @@
 ## Roadmap 
 
  * Symfony2, jekyll, AngularJS support
+ * Best bower dependencies support
  * PHP webserver for dynamic content (plain project)
- * Use of twig for reusable elements
- * Creation of a sub-project "common"
+
+## Releases
+
+### 1.0.0 (August 5, 2015)
+
+  * Installation setup
+  * Log level integration in installation and usage
+  * Support of twig for reusable elements (with components)
+  * Support of multiple source folders
+  * Support of JSON or yml files
+  * Improve error handler
 
 ## Features
 

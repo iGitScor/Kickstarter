@@ -10,12 +10,12 @@
 Use the kickstarter by launching this command
 
 ```sh
-$ ./kickstarter.sh
+$ kickstarter
 ```
 
 ## Configuration
 
-* Launch `gulp configuration` to configure the project using the kickstarter.
+* Launch `kickstarter init` to configure the project using the kickstarter.
 
 ## Changelog
 
