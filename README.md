@@ -17,6 +17,21 @@ $ kickstarter
 
 * Launch `kickstarter init` to configure the project using the kickstarter.
 
+## Tests
+
+* Launch the following command :
+``sh
+$ mocha
+``
+
+
+For a complete HTML report, add parameters :
+```sh
+$ mocha --reporter mocha-html-reporter |  \  
+  cat node_modules/mocha-html-reporter/docs/head.html - node_modules/mocha-html-reporter/docs/tail.html \  
+  > kickstarter.spec.html
+```
+
 ## Changelog
 
 To see what has changed and the kickstarter roadmap, see the [CHANGELOG](docs/CHANGELOG.md).
