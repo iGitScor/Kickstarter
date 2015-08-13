@@ -4,7 +4,13 @@
  * Best bower dependencies support
  * PHP webserver for dynamic content (plain project)
 
-## Releases
+## Features
+
+### 1.1.0
+
+  * Support of twig filters (trans)
+
+## New release
 
 ### 1.0.0 (August 5, 2015)
 
