@@ -41,4 +41,11 @@ Most frequently asked questions are described here : [FAQ](docs/faq.md)
 
 ## Troubleshooting
 
-If you find yourself running into issues during installation or running the tools, please open an [issue](https://github.com/1001Pharmacies/kickstarter/issues). We would be happy to discuss how they can be solved.
+If you find yourself running into issues during installation or running the tools,
+please open an [issue](https://github.com/1001Pharmacies/kickstarter/issues).
+We would be happy to discuss how they can be solved.
+
+## License
+
+[MIT](LICENCE)
+Copyright 2015 1001Pharmacies
