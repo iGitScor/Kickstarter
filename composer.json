@@ -1,0 +1,12 @@
+{
+    "name": "1001pharmacies/kickstarter",
+    "description": "Used to improve front-end files management (less,js,...)",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "iGitScor",
+            "email": "sebastien@1001pharmacies.com"
+        }
+    ],
+    "require": {}
+}

@@ -1,7 +1,4 @@
-/config/project.json
 /bower
-/public
 /node_modules
-/sources/**/scripts/external
 npm-debug.log
 .DS_Store
