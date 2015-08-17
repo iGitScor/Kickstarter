@@ -1,1 +1,0 @@
-gulp kick && gulp start
