@@ -20,10 +20,9 @@ $ kickstarter
 ## Tests
 
 * Launch the following command :
-``sh
+```sh
 $ mocha
-``
-
+```
 
 For a complete HTML report, add parameters :
 ```sh
@@ -39,3 +38,7 @@ To see what has changed and the kickstarter roadmap, see the [CHANGELOG](docs/CH
 ## FAQ
 
 Most frequently asked questions are described here : [FAQ](docs/faq.md)
+
+## Troubleshooting
+
+If you find yourself running into issues during installation or running the tools, please open an [issue](https://github.com/1001Pharmacies/kickstarter/issues). We would be happy to discuss how they can be solved.
