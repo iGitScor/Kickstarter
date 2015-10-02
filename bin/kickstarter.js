@@ -7,6 +7,4 @@
  * file that was distributed with this source code.
  */
 
-#!/usr/bin/env node
-
 require('../lib/cli').run();
