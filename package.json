@@ -1,7 +1,7 @@
 {
   "name": "Kickstarter",
   "description": "Set of front bootstrap projects using cool stuff",
-   "keywords": [
+  "keywords": [
     "kickstarter",
     "gulp",
     "gulpstarter",
@@ -14,24 +14,29 @@
     "assets",
     "symfony"
   ],
+  "scripts": {
+    "test": "node node_modules/mocha/bin/mocha"
+  },
   "version": "1.1.0",
   "author": "iGitScor <sebastien@1001pharmacies.com>",
-  "contributors": [{
-    "name": "Mathieu1001Pharma",
-    "email": "mathieu@1001pharmacies.com"
-  }],
+  "contributors": [
+    {
+      "name": "Mathieu1001Pharma",
+      "email": "mathieu@1001pharmacies.com"
+    }
+  ],
   "license": "MIT",
-  "homepage": "https://github.com/1001Pharmacies/kickstarter",
+  "homepage": "https://github.com/iGitScor/kickstarter",
   "bin": {
     "kickstarter": "./bin/kickstarter"
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/1001Pharmacies/kickstarter.git"
+    "url": "https://github.com/iGitScor/kickstarter.git"
   },
   "private": true,
   "bugs": {
-    "url": "https://github.com/1001Pharmacies/kickstarter/issues"
+    "url": "https://github.com/iGitScor/kickstarter/issues"
   },
   "dependencies": {
     "glob": "^5.0.13",
@@ -64,11 +69,12 @@
     "gulp-task-listing": "^1.0.1",
     "gulp-twig": "^0.4.0",
     "gulp-uglify": "^1.1.0",
-    "gulp-webserver": "^0.9.0",
     "gulp-w3cjs": "^1.0.0",
+    "gulp-webserver": "^0.9.0",
     "gulp-yaml": "^0.2.4",
     "jshint-stylish": "^2.0.1",
     "lodash": "^3.10.0",
+    "mocha": "^3.2.0",
     "mocks": "0.0.15",
     "run-sequence": "^1.1.2"
   },
