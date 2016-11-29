@@ -18,7 +18,7 @@
     "test": "node node_modules/mocha/bin/mocha"
   },
   "version": "1.1.0",
-  "author": "iGitScor <sebastien@1001pharmacies.com>",
+  "author": "iGitScor <sebastien.correaud@gmail.com>",
   "contributors": [
     {
       "name": "Mathieu1001Pharma",
