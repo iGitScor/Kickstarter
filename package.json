@@ -16,7 +16,7 @@
   ],
   "scripts": {
     "test:unit": "node node_modules/mocha/bin/mocha",
-    "test:lint": "",
+    "test:lint": "echo \"Error: no test specified\" && exit 0",
     "test": "npm run test:unit && npm run test:lint"
   },
   "version": "1.0.0",
