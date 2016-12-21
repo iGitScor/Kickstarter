@@ -26,7 +26,7 @@ module.exports = function (config) {
 
     // Twig to compile
     twigsource: [
-      'sources/full/views/*.twig'
+      'sources/views/*.twig'
     ],
 
 
@@ -40,7 +40,7 @@ module.exports = function (config) {
 
 
     // Content path
-    contentPath: 'sources/full/content',
+    contentPath: 'sources/content',
 
 
     // Validate HTML templates
@@ -59,7 +59,7 @@ module.exports = function (config) {
 
     // JS sources
     jssource: [
-      'sources/full/scripts/*.js'
+      'sources/scripts/*.js'
     ],
 
 
@@ -69,7 +69,7 @@ module.exports = function (config) {
 
     // JS main sources (to be lint)
     jsApplication: [
-      'sources/full/scripts/*.js'
+      'sources/scripts/*.js'
     ],
 
 
@@ -79,7 +79,7 @@ module.exports = function (config) {
 
     // Images to optimize
     imagessource: [
-      'sources/full/images/*.*'
+      'sources/images/*.*'
     ],
 
 
@@ -93,7 +93,7 @@ module.exports = function (config) {
 
     // preprocess matching files sources
     csspreprocessorssource: [
-      'sources/full/less/*.less'
+      'sources/less/*.less'
     ],
 
 

@@ -1,0 +1,43 @@
+# ESLint documentation can be found at http://eslint.org/docs/
+# find . -path ./node_modules -prune -o -name "*.js" -o -name "*.jsx" -exec eslint {} \;
+
+env:
+  mocha: true
+  node: true
+
+extends: "airbnb/legacy"
+
+rules:
+  // Node lib
+  no-console: 'off'
+  // Require/import
+  global-require: 'off'
+  import/first: 'off'
+  import/no-dynamic-require: 'off'
+
+  // Anonymous functions
+  func-names: 'off'
+  // Variables
+  no-var: 'off'
+  vars-on-top: 'off'
+  no-param-reassign: 'off'
+  strict: 'off'
+
+  // Code style guide
+  no-multi-spaces: 'off'
+  no-underscore-dangle: 'off'
+  // Comments
+  spaced-comment: 'off'
+
+  // disable requiring trailing commas because it might be nice to revert to
+  // being JSON at some point, and I don't want to make big changes now.
+  comma-dangle: 'off'
+  no-mixed-operators:
+    - 'error'
+    - groups:  [["&", "|", "^", "~", "<<", ">>", ">>>"], ["&&", "||"]]
+
+  no-shadow: 'warn'
+  consistent-return: 'warn'
+  no-useless-escape: 'warn'
+  no-lonely-if: 'warn'
+  no-else-return: 'warn'

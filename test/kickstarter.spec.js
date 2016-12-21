@@ -9,7 +9,7 @@
 
 'use strict';
 
-var _path   = require('path');
+var path    = require('path');
 var chai    = require('chai');
 var expect  = chai.expect;
 
@@ -18,30 +18,34 @@ describe('kickstarter', function () {
   var m = null;
 
   beforeEach(function () {
-    m = loadFile(__dirname + '/../lib/kickstarter.js', { glob: require('glob') });
+    m = loadFile(path.join(__dirname, '/../lib/kickstarter.js'), { glob: require('glob') });
   });
 
   describe('generateMapping', function () {
     it('should be empty if source is empty', function () {
-      var source = [], dist = 'dist';
+      var source = [];
+      var dist = 'dist';
       expect(Object.keys(m.module.exports.generateMapping(source, dist)).length)
         .to.equal(0);
     });
 
     it('should be empty if dist is null', function () {
-      var source = {}, dist = 'dist';
+      var source = {};
+      var dist = 'dist';
       expect(Object.keys(m.module.exports.generateMapping(source, dist)).length)
         .to.equal(0);
     });
 
     it('should be empty if source and dist are incorrect', function () {
-      var source = null, dist = 12;
+      var source = null;
+      var dist = 12;
       expect(Object.keys(m.module.exports.generateMapping(source, dist)).length)
         .to.equal(0);
     });
 
     it('should handle source including dist', function () {
-      var source = ['source->dist'], dist = null;
+      var source = ['source->dist'];
+      var dist = null;
       expect(Object.keys(m.module.exports.generateMapping(source, dist)).length)
         .to.equal(1);
       expect(m.module.exports.generateMapping(source, dist).source)
@@ -49,7 +53,8 @@ describe('kickstarter', function () {
     });
 
     it('should handle multiple sources', function () {
-      var source = ['source1', 'source2'], dist = 'dist';
+      var source = ['source1', 'source2'];
+      var dist = 'dist';
       expect(Object.keys(m.module.exports.generateMapping(source, dist)).length)
         .to.equal(1);
       expect(m.module.exports.generateMapping(source, dist)['source1,source2'])
@@ -57,7 +62,8 @@ describe('kickstarter', function () {
     });
 
     it('should keep source order', function () {
-      var source = ['sourceB', 'sourceA'], dist = 'dist';
+      var source = ['sourceB', 'sourceA'];
+      var dist = 'dist';
       expect(m.module.exports.generateMapping(source, dist)['sourceB,sourceA'])
         .to.equal('dist');
     });
@@ -123,7 +129,7 @@ describe('kickstarter', function () {
       expect(m.module.exports.getRecursiveSources(sources).length)
         .to.equal(1);
       expect(m.module.exports.getRecursiveSources(sources)[0])
-        .to.equal(_path.resolve('source/**/*.*'));
+        .to.equal(path.resolve('source/**/*.*'));
     });
 
     it('should handle multiple sources', function () {
@@ -131,9 +137,9 @@ describe('kickstarter', function () {
       expect(m.module.exports.getRecursiveSources(sources).length)
         .to.equal(2);
       expect(m.module.exports.getRecursiveSources(sources)[0])
-        .to.equal(_path.resolve('sourceA/**/*.*'));
+        .to.equal(path.resolve('sourceA/**/*.*'));
       expect(m.module.exports.getRecursiveSources(sources)[1])
-        .to.equal(_path.resolve('sourceB/**/*.*'));
+        .to.equal(path.resolve('sourceB/**/*.*'));
     });
 
     it('should handle multiple sources with some ones including dist', function () {
@@ -141,9 +147,9 @@ describe('kickstarter', function () {
       expect(m.module.exports.getRecursiveSources(sources).length)
         .to.equal(2);
       expect(m.module.exports.getRecursiveSources(sources)[0])
-        .to.equal(_path.resolve('sourceA/**/*.*'));
+        .to.equal(path.resolve('sourceA/**/*.*'));
       expect(m.module.exports.getRecursiveSources(sources)[1])
-        .to.equal(_path.resolve('sourceB/**/*.*'));
+        .to.equal(path.resolve('sourceB/**/*.*'));
     });
 
     it('should eliminate duplicated sources', function () {

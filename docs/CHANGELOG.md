@@ -1,10 +1,16 @@
-## Roadmap 
+## Roadmap
 
  * Symfony2, jekyll, AngularJS support
- * Best bower dependencies support
  * PHP webserver for dynamic content (plain project)
 
 ## Features
+
+### 1.2.0
+
+  * Update dependencies
+  * Remove useless dependencies
+  * Add clean code rules
+  * Lint library
 
 ### 1.1.0
 
