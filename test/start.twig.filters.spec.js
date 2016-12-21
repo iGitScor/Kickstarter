@@ -9,7 +9,7 @@
 
 'use strict';
 
-var _path   = require('path');
+var path    = require('path');
 var chai    = require('chai');
 var expect  = chai.expect;
 
@@ -19,10 +19,10 @@ describe('kickstarter twig filters', function () {
   var content   = {};
 
   beforeEach(function () {
-    m = loadFile(__dirname + '/../lib/start/twig.filters.js', { glob: require('glob') });
+    m = loadFile(path.join(__dirname, '/../lib/start/twig.filters.js'), { glob: require('glob') });
     content = {
       domain: {
-        subdomain : {
+        subdomain: {
           key: 'value'
         }
       }
