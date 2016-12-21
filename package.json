@@ -1,7 +1,7 @@
 {
-  "name": "Kickstarter",
+  "name": "kickstarter-tools",
   "description": "Set of front bootstrap projects using cool stuff",
-  "version": "1.2.0",
+  "version": "1.2.5",
   "keywords": [
     "kickstarter",
     "gulp",
@@ -45,9 +45,9 @@
     "url": "https://github.com/iGitScor/kickstarter.git"
   },
   "bugs": "https://github.com/iGitScor/kickstarter/issues",
-  "main": "./bin/kickstarter.js",
+  "main": "./bin/kickstarter",
   "bin": {
-    "kickstarter": "./bin/kickstarter.js"
+    "kickstarter": "./bin/kickstarter"
   },
   "dependencies": {
     "browser-sync": "2.18.x",
