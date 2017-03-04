@@ -2,8 +2,16 @@
 
 ### 1. Install the kickstarter
 
+Using npm
+
 ```sh
-$ npm install -g {Kickstarter repo}
+$ npm install -g kickstarter-tools
+```
+
+Using yarn
+
+```sh
+$ yarn global add kickstarter-tools
 ```
 
 This will install server packages (gulp and gulp plugins and other dependencies)
